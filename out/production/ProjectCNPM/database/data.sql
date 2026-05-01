@@ -1,0 +1,137 @@
+USE
+db_labor_contract;
+
+SET
+FOREIGN_KEY_CHECKS = 0;
+TRUNCATE TABLE tblContractJobShift;
+TRUNCATE TABLE tblContractJob;
+TRUNCATE TABLE tblContract;
+TRUNCATE TABLE tblShift;
+TRUNCATE TABLE tblJob;
+TRUNCATE TABLE tblCustomer;
+TRUNCATE TABLE tblSalesManager;
+TRUNCATE TABLE tblUser;
+SET
+FOREIGN_KEY_CHECKS = 1;
+
+-- 1. Dữ liệu bảng tblUser
+INSERT INTO tblUser (username, password, fullName, dateOfBirth, idCard, phone, email, address, role)
+VALUES ('anlv', 'anlv@123', 'Lê Văn An', '2000-01-19', '001204001234', '0912345678', 'anlv@email.com',
+        'Cầu Giấy, Hà Nội', 'Sales Manager'),
+       ('admin', 'admin123', 'Admin', '1990-05-10', '001090005678', '0988888888', 'admin@email.com',
+        'Hoàn Kiếm, Hà Nội', 'Admin');
+
+-- 2. Dữ liệu bảng tblSalesManager
+INSERT INTO tblSalesManager (userId)
+VALUES (1);
+
+-- 3. Dữ liệu bảng tblCustomer
+INSERT INTO tblCustomer (fullName, dateOfBirth, idCard, phone, email, address, type)
+VALUES ('Nguyễn Tuấn Anh', '1990-05-12', '001090001111', '0901234567', 'tuananh@email.com', 'Cầu Giấy, Hà Nội',
+        'Cá nhân'),
+       ('Lê Hoàng Anh', '1985-08-20', '001085002222', '0988776655', 'hoanganh@email.com', 'Đống Đa, Hà Nội',
+        'Doanh nghiệp'),
+       ('Trần Mai Anh', '1995-11-05', '001095003333', '0911223344', 'maianh@email.com', 'Hà Đông, Hà Nội', 'Gia đình'),
+       ('Phạm Thuỳ Linh', '1992-02-14', '001092004444', '0933445566', 'thuylinh@email.com', 'Thanh Xuân, Hà Nội',
+        'Cá nhân'),
+       ('Vũ Khánh Linh', '1998-07-22', '001098005555', '0944556677', 'khanhlinh@email.com', 'Hai Bà Trưng, Hà Nội',
+        'Gia đình'),
+       ('Đặng Quang Minh', '1988-09-09', '001088006666', '0977889900', 'quangminh@email.com', 'Hoàn Kiếm, Hà Nội',
+        'Doanh nghiệp'),
+       ('Bùi Nhật Minh', '2001-12-01', '001201007777', '0388991122', 'nhatminh@email.com', 'Long Biên, Hà Nội',
+        'Cá nhân'),
+       ('Hồ Văn Cường', '1982-03-30', '001082008888', '0922334455', 'cuonghv@email.com', 'Nam Từ Liêm, Hà Nội',
+        'Doanh nghiệp'),
+       ('Ngô Thị Ánh', '1975-06-15', '001075009999', '0966778811', 'anhnt@email.com', 'Bắc Từ Liêm, Hà Nội',
+        'Gia đình'),
+       ('Đỗ Hải Trí', '1993-10-10', '001093001010', '0999888777', 'tridh@email.com', 'Ba Đình, Hà Nội', 'Cá nhân');
+
+-- 4. Dữ liệu bảng tblJob
+INSERT INTO tblJob (jobName, description, skill)
+VALUES ('Giúp việc nhà', 'Dọn dẹp phòng khách, bếp, vệ sinh nhà cửa',
+        'Sạch sẽ, trung thực, biết sử dụng thiết bị gia dụng'),
+       ('Chăm sóc trẻ em', 'Trông trẻ, cho trẻ ăn, chơi cùng trẻ', 'Yêu trẻ, kiên nhẫn, có kiến thức sơ cứu cơ bản'),
+       ('Làm vườn', 'Cắt cỏ, tỉa cành, tưới nước, bón phân', 'Hiểu biết về cây cảnh, có sức khỏe tốt'),
+       ('Bốc vác', 'Bốc xếp hàng hóa lên xe tải hoặc kho', 'Sức khỏe cực tốt, cẩn thận với hàng dễ vỡ'),
+       ('Lễ tân sự kiện', 'Đón khách, hướng dẫn vị trí, ghi danh', 'Ngoại hình khá, giao tiếp tốt, tiếng Anh cơ bản');
+
+-- 5. Dữ liệu bảng tblShift
+INSERT INTO tblShift (workingDate, startTime, endTime)
+VALUES ('2026-04-20', '00:00:00', '03:00:00'),
+       ('2026-04-20', '03:00:00', '06:00:00'),
+       ('2026-04-20', '06:00:00', '09:00:00'),
+       ('2026-04-20', '09:00:00', '12:00:00'),
+       ('2026-04-20', '12:00:00', '15:00:00'),
+       ('2026-04-20', '15:00:00', '18:00:00'),
+       ('2026-04-20', '18:00:00', '21:00:00'),
+       ('2026-04-20', '21:00:00', '23:59:59'),
+
+       ('2026-04-21', '00:00:00', '03:00:00'),
+       ('2026-04-21', '03:00:00', '06:00:00'),
+       ('2026-04-21', '06:00:00', '09:00:00'),
+       ('2026-04-21', '09:00:00', '12:00:00'),
+       ('2026-04-21', '12:00:00', '15:00:00'),
+       ('2026-04-21', '15:00:00', '18:00:00'),
+       ('2026-04-21', '18:00:00', '21:00:00'),
+       ('2026-04-21', '21:00:00', '23:59:59'),
+
+       ('2026-04-22', '00:00:00', '03:00:00'),
+       ('2026-04-22', '03:00:00', '06:00:00'),
+       ('2026-04-22', '06:00:00', '09:00:00'),
+       ('2026-04-22', '09:00:00', '12:00:00'),
+       ('2026-04-22', '12:00:00', '15:00:00'),
+       ('2026-04-22', '15:00:00', '18:00:00'),
+       ('2026-04-22', '18:00:00', '21:00:00'),
+       ('2026-04-22', '21:00:00', '23:59:59'),
+
+       ('2026-04-23', '00:00:00', '03:00:00'),
+       ('2026-04-23', '03:00:00', '06:00:00'),
+       ('2026-04-23', '06:00:00', '09:00:00'),
+       ('2026-04-23', '09:00:00', '12:00:00'),
+       ('2026-04-23', '12:00:00', '15:00:00'),
+       ('2026-04-23', '15:00:00', '18:00:00'),
+       ('2026-04-23', '18:00:00', '21:00:00'),
+       ('2026-04-23', '21:00:00', '23:59:59'),
+
+       ('2026-04-24', '00:00:00', '03:00:00'),
+       ('2026-04-24', '03:00:00', '06:00:00'),
+       ('2026-04-24', '06:00:00', '09:00:00'),
+       ('2026-04-24', '09:00:00', '12:00:00'),
+       ('2026-04-24', '12:00:00', '15:00:00'),
+       ('2026-04-24', '15:00:00', '18:00:00'),
+       ('2026-04-24', '18:00:00', '21:00:00'),
+       ('2026-04-24', '21:00:00', '23:59:59'),
+
+       ('2026-04-25', '00:00:00', '03:00:00'),
+       ('2026-04-25', '03:00:00', '06:00:00'),
+       ('2026-04-25', '06:00:00', '09:00:00'),
+       ('2026-04-25', '09:00:00', '12:00:00'),
+       ('2026-04-25', '12:00:00', '15:00:00'),
+       ('2026-04-25', '15:00:00', '18:00:00'),
+       ('2026-04-25', '18:00:00', '21:00:00'),
+       ('2026-04-25', '21:00:00', '23:59:59'),
+
+       ('2026-04-26', '00:00:00', '03:00:00'),
+       ('2026-04-26', '03:00:00', '06:00:00'),
+       ('2026-04-26', '06:00:00', '09:00:00'),
+       ('2026-04-26', '09:00:00', '12:00:00'),
+       ('2026-04-26', '12:00:00', '15:00:00'),
+       ('2026-04-26', '15:00:00', '18:00:00'),
+       ('2026-04-26', '18:00:00', '21:00:00'),
+       ('2026-04-26', '21:00:00', '23:59:59');
+
+-- 6. Dữ liệu bảng tblContract
+INSERT INTO tblContract (contractDate, paymentMethod, status, salesManagerId, customerId)
+VALUES ('2026-04-20', 'Tiền mặt', 'Đã thanh toán', 1, 1),
+       ('2026-04-21', 'Chuyển khoản', 'Đã xác nhận', 1, 2);
+
+-- 7. Dữ liệu bảng tblContractJob
+INSERT INTO tblContractJob (contractId, jobId)
+VALUES (1, 1),
+       (2, 5);
+
+-- 8. Dữ liệu bảng tblContractJobShift
+INSERT INTO tblContractJobShift (requiredWorkers, agreedWage, shiftId, contractJobId)
+VALUES (1, 150000.0, 19, 1),
+       (2, 200000.0, 20, 2),
+       (2, 200000.0, 21, 2);
