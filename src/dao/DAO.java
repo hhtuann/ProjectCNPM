@@ -13,7 +13,7 @@ public class DAO {
 
             try {
                 Class.forName(dbClass);
-                con = DriverManager.getConnection(dbUrl, "root", "password");
+                con = DriverManager.getConnection(dbUrl, "root", "216556");
                 System.out.println("Kết nối database thành công!");
             } catch (Exception e) {
                 System.out.println("Kết nối database thất bại!");
