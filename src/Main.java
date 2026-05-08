@@ -21,7 +21,7 @@ public class Main {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ex) {
-            System.err.println("Không thể thiết lập Look and Feel. Sẽ sử dụng giao diện mặc định.");
+            System.err.println("Không thể thiết lập Look and Feel.");
         }
         java.awt.EventQueue.invokeLater(() -> new LoginFrm().setVisible(true));
     }

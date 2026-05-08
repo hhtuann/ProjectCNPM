@@ -25,6 +25,8 @@ public class CreateContractFrm extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CreateContractFrm.class.getName());
     private Contract contract;
+    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
     /**
      * Creates new form CreateContractFrm
@@ -208,9 +210,6 @@ public class CreateContractFrm extends javax.swing.JFrame {
     }
 
     public void reloadTblContractJob() {
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
-
         DefaultTableModel tableModel = (DefaultTableModel) tblContractJob.getModel();
         tableModel.setRowCount(0);
 

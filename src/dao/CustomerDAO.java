@@ -20,7 +20,7 @@ public class CustomerDAO extends DAO {
      */
     public ArrayList<Customer> searchCustomer(String key) {
         ArrayList<Customer> result = new ArrayList<>();
-        String sql = "SELECT * FROM tblCustomer WHERE fullname LIKE ? OR idCard LIKE ?";
+        String sql = "SELECT * FROM tblCustomer WHERE fullName LIKE ? OR idCard LIKE ?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);

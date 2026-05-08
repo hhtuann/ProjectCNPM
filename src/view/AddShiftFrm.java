@@ -34,6 +34,8 @@ public class AddShiftFrm extends JFrame {
     private ContractJob contractJob;
     private ArrayList<Shift> shifts = new ArrayList<>();
     private ArrayList<ContractJobShift> contractJobShifts = new ArrayList<>();
+    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
     /**
      * Creates new form AddShiftFrm
@@ -53,8 +55,6 @@ public class AddShiftFrm extends JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
 
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
         DefaultTableModel tableModel = (DefaultTableModel) tblContractJobShift.getModel();
         tableModel.setRowCount(0);
 
@@ -347,8 +347,6 @@ public class AddShiftFrm extends JFrame {
         lblErrorEndTime.setText(" ");
 
         boolean isValid = true;
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
         LocalDate workingDate = null;
         if (workingDateString.isEmpty()) {
@@ -466,8 +464,6 @@ public class AddShiftFrm extends JFrame {
             return;
         }
 
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
         DefaultTableModel tableModelShifts = (DefaultTableModel) tblShift.getModel();
         DefaultTableModel tableModelContractJobShifts = (DefaultTableModel) tblContractJobShift.getModel();
 
@@ -503,12 +499,15 @@ public class AddShiftFrm extends JFrame {
     private void btnSaveActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         if (this.contractJobShifts.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Vui lòng thêm ít nhất 1 ca làm", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+            if (JOptionPane.showConfirmDialog(null, "Xác nhận không thêm ca làm cho đầu việc này?\nĐầu việc này sẽ bị xoá.", "Xác nhận", JOptionPane.YES_NO_OPTION) == 0) {
+                this.contract.getContractJobs().remove(this.contractJob);
+                this.createContractFrm.reloadTblContractJob();
+                this.dispose();
+            }
             return;
         }
 
         this.contractJob.calculateTotalShiftWage();
-
         if (!this.contract.getContractJobs().contains(this.contractJob)) {
             this.contract.getContractJobs().add(this.contractJob);
         }
@@ -555,8 +554,6 @@ public class AddShiftFrm extends JFrame {
     }
 
     private void reloadTblContractJobShift() {
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
         DefaultTableModel tableModel = (DefaultTableModel) tblContractJobShift.getModel();
         tableModel.setRowCount(0);
 

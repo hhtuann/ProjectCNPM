@@ -20,6 +20,8 @@ public class ConfirmContractFrm extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ConfirmContractFrm.class.getName());
     private CreateContractFrm createContractFrm;
     private Contract contract;
+    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
     /**
      * Creates new form CreateContractFrm
@@ -30,8 +32,6 @@ public class ConfirmContractFrm extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
 
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
         Customer customer = this.contract.getCustomer();
         lblCustomerFullName.setText(customer.getFullName());
