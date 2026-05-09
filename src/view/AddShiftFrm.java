@@ -19,6 +19,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import static javax.swing.SwingUtilities.isRightMouseButton;
 
@@ -205,7 +206,7 @@ public class AddShiftFrm extends JFrame {
 
         jLabel9.setText("Để thêm các ca làm đã chọn, click Thêm.");
 
-        btnAddShift.setText("Thêm...");
+        btnAddShift.setText("Thêm");
         btnAddShift.addActionListener(this::btnAddShiftActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -467,39 +468,50 @@ public class AddShiftFrm extends JFrame {
         DefaultTableModel tableModelShifts = (DefaultTableModel) tblShift.getModel();
         DefaultTableModel tableModelContractJobShifts = (DefaultTableModel) tblContractJobShift.getModel();
 
-        for (int i = 0; i < tableModelShifts.getRowCount(); ++i) {
-            boolean isSelected = (boolean) tableModelShifts.getValueAt(i, 4);
-            if (isSelected) {
-                tableModelShifts.setValueAt(false, i, 4);
+        ArrayList<ContractJobShift> existedShifts = new ArrayList<>();
+        ArrayList<ContractJobShift> selectedShifts = new ArrayList<>();
 
-                Shift selectedShift = this.shifts.get(i);
-                ContractJobShift contractJobShift = new ContractJobShift(
-                        0,
+        for (int i = 0; i < tableModelShifts.getRowCount(); ++i) {
+            if ((boolean) tableModelShifts.getValueAt(i, 4)) {
+                ContractJobShift selectedShift = new ContractJobShift(
+                        i,
                         requiredWorkers,
                         agreedWage,
-                        selectedShift
+                        this.shifts.get(i)
                 );
 
-                this.contractJobShifts.add(contractJobShift);
-
-                tableModelContractJobShifts.addRow(new Object[]{
-                        tableModelContractJobShifts.getRowCount() + 1,
-                        selectedShift.getWorkingDate().format(dateFormatter),
-                        selectedShift.getStartTime().format(timeFormatter),
-                        selectedShift.getEndTime().format(timeFormatter),
-                        requiredWorkers,
-                        agreedWage
-                });
+                selectedShifts.add(selectedShift);
+                if(this.contractJobShifts.contains(selectedShift)) {
+                    tableModelShifts.setValueAt(false, i, 4);
+                    existedShifts.add(selectedShift);
+                }
             }
         }
 
+        if(existedShifts.isEmpty()) {
+            for(ContractJobShift cjs: selectedShifts) {
+                tableModelShifts.setValueAt(false, cjs.getId(), 4);
 
+                this.contractJobShifts.add(cjs);
+                tableModelContractJobShifts.addRow(new Object[] {
+                        tableModelContractJobShifts.getRowCount() + 1,
+                        cjs.getShift().getWorkingDate().format(dateFormatter),
+                        cjs.getShift().getStartTime().format(timeFormatter),
+                        cjs.getShift().getEndTime().format(timeFormatter),
+                        cjs.getRequiredWorkers(),
+                        cjs.getAgreedWage()
+                });
+            }
+        } else {
+            String message = "Ca làm số " + existedShifts.stream().map(cjs -> String.valueOf(cjs.getId() + 1)).collect(Collectors.joining(", ")) + " đã được thêm trước đó.";
+            JOptionPane.showMessageDialog(this, message, "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btnAddShiftActionPerformed
 
     private void btnSaveActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         if (this.contractJobShifts.isEmpty()) {
-            if (JOptionPane.showConfirmDialog(null, "Xác nhận không thêm ca làm cho đầu việc này?\nĐầu việc này sẽ bị xoá.", "Xác nhận", JOptionPane.YES_NO_OPTION) == 0) {
+            if (JOptionPane.showConfirmDialog(this, "Xác nhận không thêm ca làm cho đầu việc này?\nĐầu việc này sẽ bị xoá.", "Xác nhận", JOptionPane.YES_NO_OPTION) == 0) {
                 this.contract.getContractJobs().remove(this.contractJob);
                 this.createContractFrm.reloadTblContractJob();
                 this.dispose();
@@ -540,7 +552,7 @@ public class AddShiftFrm extends JFrame {
             itemDelete.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (JOptionPane.showConfirmDialog(null, "Bạn có xác nhận xoá ca làm này?", "Xác nhận", JOptionPane.YES_NO_OPTION) == 0) {
+                    if (JOptionPane.showConfirmDialog(AddShiftFrm.this, "Bạn có xác nhận xoá ca làm này?", "Xác nhận", JOptionPane.YES_NO_OPTION) == 0) {
                         deleteShiftAtRow(row);
                     }
                 }

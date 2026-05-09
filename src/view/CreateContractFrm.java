@@ -25,6 +25,7 @@ public class CreateContractFrm extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CreateContractFrm.class.getName());
     private Contract contract;
+    private ArrayList<ContractJob> contractJobs = new ArrayList<>();
     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
@@ -33,6 +34,7 @@ public class CreateContractFrm extends javax.swing.JFrame {
      */
     public CreateContractFrm(Contract contract) {
         this.contract = contract;
+        this.contractJobs = this.contract.getContractJobs();
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -153,7 +155,7 @@ public class CreateContractFrm extends javax.swing.JFrame {
 
     private void btnConfirmContractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmContractActionPerformed
         // TODO add your handling code here:
-        if (this.contract.getContractJobs().isEmpty()) {
+        if (this.contractJobs.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Vui lòng thêm ít nhất một đầu việc vào hợp đồng!", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
             return;
         }
@@ -191,11 +193,12 @@ public class CreateContractFrm extends javax.swing.JFrame {
             JPopupMenu popupMenu = new JPopupMenu();
             JMenuItem itemDelete = new JMenuItem("Xoá");
             popupMenu.add(itemDelete);
+            popupMenu.show(tblContractJob, evt.getX(), evt.getY());
 
             itemDelete.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (JOptionPane.showConfirmDialog(null, "Xác nhận xoá", "Xoá", JOptionPane.YES_NO_OPTION) == 0) {
+                    if (JOptionPane.showConfirmDialog(null, "Bạn có xác nhận xoá ca làm này?", "Xác nhận", JOptionPane.YES_NO_OPTION) == 0) {
                         deleleShiftAtRow(row);
                     }
                 }
@@ -207,6 +210,28 @@ public class CreateContractFrm extends javax.swing.JFrame {
         int index = 0;
         ContractJob contractJob = null;
         ContractJobShift contractJobShift = null;
+
+        for (ContractJob cj : this.contractJobs) {
+            for (ContractJobShift cjs : cj.getContractJobShifts()) {
+                if (row == index) {
+                    contractJob = cj;
+                    contractJobShift = cjs;
+                    break;
+                }
+                ++index;
+            }
+            if (contractJobShift != null) {
+                break;
+            }
+        }
+
+        if (contractJob != null && contractJobShift != null) {
+            contractJob.getContractJobShifts().remove(contractJobShift);
+            if (contractJob.getContractJobShifts().isEmpty()) {
+                this.contractJobs.remove(contractJob);
+            }
+        }
+        reloadTblContractJob();
     }
 
     public void reloadTblContractJob() {
@@ -214,7 +239,7 @@ public class CreateContractFrm extends javax.swing.JFrame {
         tableModel.setRowCount(0);
 
         int cnt = 0;
-        for (ContractJob cj : this.contract.getContractJobs()) {
+        for (ContractJob cj : this.contractJobs) {
             for (ContractJobShift cjs : cj.getContractJobShifts()) {
                 tableModel.addRow(new Object[]{
                         ++cnt,

@@ -33,6 +33,26 @@ public class SearchCustomerFrm extends javax.swing.JFrame {
         this.salesManager = salesManager;
         initComponents();
         this.setLocationRelativeTo(null);
+
+        CustomerDAO customerDAO = new CustomerDAO();
+        this.customers = customerDAO.searchCustomer("");
+
+        DefaultTableModel tableModel = (DefaultTableModel) tblCustomer.getModel();
+        tableModel.setRowCount(0);
+
+        int cnt = 0;
+        for (Customer c : this.customers) {
+            tableModel.addRow(new Object[]{
+                    ++cnt,
+                    c.getFullName(),
+                    c.getIdCard(),
+                    c.getDateOfBirth().format(dateFormatter),
+                    c.getPhone(),
+                    c.getEmail(),
+                    c.getAddress(),
+                    c.getType()
+            });
+        }
     }
 
     /**
@@ -90,7 +110,7 @@ public class SearchCustomerFrm extends javax.swing.JFrame {
 
         jLabel1.setText("Để thêm khách hàng mới, click Thêm.");
 
-        btnAddCustomer.setText("Thêm...");
+        btnAddCustomer.setText("Thêm");
         btnAddCustomer.addActionListener(this::btnAddCustomerActionPerformed);
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("Kết quả tìm kiếm"));
@@ -211,8 +231,6 @@ public class SearchCustomerFrm extends javax.swing.JFrame {
         if (row == -1) {
             return;
         }
-
-        tblCustomer.setRowSelectionInterval(row, row);
 
         if (isLeftMouseButton(evt) && evt.getClickCount() == 2) {
             Customer customer = this.customers.get(row);

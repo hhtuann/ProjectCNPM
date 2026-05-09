@@ -33,6 +33,22 @@ public class SearchJobFrm extends javax.swing.JFrame {
         this.contract = contract;
         initComponents();
         this.setLocationRelativeTo(null);
+
+        JobDAO jobDAO = new JobDAO();
+        this.jobs = jobDAO.searchJob("");
+
+        DefaultTableModel tableModel = (DefaultTableModel) tblJob.getModel();
+        tableModel.setRowCount(0);
+
+        int cnt = 0;
+        for (Job j : this.jobs) {
+            tableModel.addRow(new Object[]{
+                    ++cnt,
+                    j.getJobName(),
+                    j.getDescription(),
+                    j.getSkill()
+            });
+        }
     }
 
     /**
@@ -118,7 +134,7 @@ public class SearchJobFrm extends javax.swing.JFrame {
 
         jLabel1.setText("Để thêm đầu việc mới, click Thêm.");
 
-        btnAddJob.setText("Thêm...");
+        btnAddJob.setText("Thêm");
         btnAddJob.addActionListener(this::btnAddJobActionPerformed);
 
         btnBack.setText("Quay lại");
@@ -200,8 +216,6 @@ public class SearchJobFrm extends javax.swing.JFrame {
         if (row == -1) {
             return;
         }
-
-        tblJob.setRowSelectionInterval(row, row);
 
         if (isLeftMouseButton(evt) && evt.getClickCount() == 2) {
             Job job = this.jobs.get(row);
