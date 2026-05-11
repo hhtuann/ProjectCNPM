@@ -47,16 +47,16 @@ public class ConfirmContractFrm extends javax.swing.JFrame {
             lblCustomerDateOfBirth.setText("null");
         }
 
-        SalesManager salesManager = this.contract.getSalesManager();
-        lblUserFullName.setText(salesManager.getFullName());
-        lblUserIdCard.setText(salesManager.getIdCard());
-        lblUserAddress.setText(salesManager.getAddress());
-        lblUserEmail.setText(salesManager.getEmail());
-        lblUserPhone.setText(salesManager.getPhone());
-        lblUserRole.setText(salesManager.getRole());
+        User user = this.contract.getUser();
+        lblUserFullName.setText(user.getFullName());
+        lblUserIdCard.setText(user.getIdCard());
+        lblUserAddress.setText(user.getAddress());
+        lblUserEmail.setText(user.getEmail());
+        lblUserPhone.setText(user.getPhone());
+        lblUserRole.setText(user.getRole());
 
-        if (salesManager.getDateOfBirth() != null) {
-            lblUserDateOfBirth.setText(salesManager.getDateOfBirth().format(dateFormatter));
+        if (user.getDateOfBirth() != null) {
+            lblUserDateOfBirth.setText(user.getDateOfBirth().format(dateFormatter));
         } else {
             lblUserDateOfBirth.setText("null");
         }

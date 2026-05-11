@@ -4,7 +4,8 @@
  */
 package view;
 
-import model.SalesManager;
+import model.User;
+import model.User;
 
 import java.time.format.DateTimeFormatter;
 
@@ -15,24 +16,24 @@ import java.time.format.DateTimeFormatter;
 public class SalesManagerHomeFrm extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SalesManagerHomeFrm.class.getName());
-    private SalesManager salesManager;
+    private User user;
     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     /**
      * Creates new form SalesManagerHomeFrm
      */
-    public SalesManagerHomeFrm(SalesManager salesManager) {
-        this.salesManager = salesManager;
+    public SalesManagerHomeFrm(User user) {
+        this.user = user;
         initComponents();
         this.setLocationRelativeTo(null);
 
-        lblFullName.setText(salesManager.getFullName());
-        lblIdCard.setText(salesManager.getIdCard());
-        lblDateOfBirth.setText(salesManager.getDateOfBirth().format(dateFormatter));
-        lblAddress.setText(salesManager.getAddress());
-        lblEmail.setText(salesManager.getEmail());
-        lblPhone.setText(salesManager.getPhone());
-        lblRole.setText(salesManager.getRole());
+        lblFullName.setText(user.getFullName());
+        lblIdCard.setText(user.getIdCard());
+        lblDateOfBirth.setText(user.getDateOfBirth().format(dateFormatter));
+        lblAddress.setText(user.getAddress());
+        lblEmail.setText(user.getEmail());
+        lblPhone.setText(user.getPhone());
+        lblRole.setText(user.getRole());
     }
 
     /**
@@ -148,7 +149,7 @@ public class SalesManagerHomeFrm extends javax.swing.JFrame {
 
     private void btnSignContractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignContractActionPerformed
         // TODO add your handling code here:
-        SearchCustomerFrm searchCustomerFrm = new SearchCustomerFrm(this.salesManager);
+        SearchCustomerFrm searchCustomerFrm = new SearchCustomerFrm(this.user);
         searchCustomerFrm.setVisible(true);
     }//GEN-LAST:event_btnSignContractActionPerformed
 

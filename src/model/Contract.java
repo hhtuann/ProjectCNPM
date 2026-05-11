@@ -11,21 +11,21 @@ public class Contract implements Serializable {
     private double totalJobWage;
     private String status = "Chưa xác nhận";
     private Customer customer;
-    private SalesManager salesManager;
+    private User user;
     private ArrayList<ContractJob> contractJobs = new ArrayList<>();
 
     public Contract() {
         super();
     }
 
-    public Contract(int id, LocalDate contractDate, String paymentMethod, String status, Customer customer, SalesManager salesManager, ArrayList<ContractJob> contractJobs) {
+    public Contract(int id, LocalDate contractDate, String paymentMethod, String status, Customer customer, User user, ArrayList<ContractJob> contractJobs) {
         super();
         this.id = id;
         this.contractDate = contractDate;
         this.paymentMethod = paymentMethod;
         this.status = status;
         this.customer = customer;
-        this.salesManager = salesManager;
+        this.user = user;
         this.contractJobs = contractJobs;
     }
 
@@ -84,12 +84,12 @@ public class Contract implements Serializable {
         this.customer = customer;
     }
 
-    public SalesManager getSalesManager() {
-        return salesManager;
+    public User getUser() {
+        return user;
     }
 
-    public void setSalesManager(SalesManager salesManager) {
-        this.salesManager = salesManager;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public ArrayList<ContractJob> getContractJobs() {

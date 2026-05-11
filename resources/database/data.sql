@@ -9,7 +9,6 @@ TRUNCATE TABLE tblContract;
 TRUNCATE TABLE tblShift;
 TRUNCATE TABLE tblJob;
 TRUNCATE TABLE tblCustomer;
-TRUNCATE TABLE tblSalesManager;
 TRUNCATE TABLE tblUser;
 SET
 FOREIGN_KEY_CHECKS = 1;
@@ -21,11 +20,7 @@ VALUES ('anlv', 'anlv@123', 'Lê Văn An', '2000-01-19', '001204001234', '091234
        ('admin', 'admin123', 'Admin', '1990-05-10', '001090005678', '0988888888', 'admin@email.com',
         'Hoàn Kiếm, Hà Nội', 'Admin');
 
--- 2. Dữ liệu bảng tblSalesManager
-INSERT INTO tblSalesManager (userId)
-VALUES (1);
-
--- 3. Dữ liệu bảng tblCustomer
+-- 2. Dữ liệu bảng tblCustomer
 INSERT INTO tblCustomer (fullName, dateOfBirth, idCard, phone, email, address, type)
 VALUES ('Nguyễn Tuấn Anh', '1990-05-12', '001090001111', '0901234567', 'tuananh@email.com', 'Cầu Giấy, Hà Nội',
         'Cá nhân'),
@@ -46,7 +41,7 @@ VALUES ('Nguyễn Tuấn Anh', '1990-05-12', '001090001111', '0901234567', 'tuan
         'Gia đình'),
        ('Đỗ Hải Trí', '1993-10-10', '001093001010', '0999888777', 'tridh@email.com', 'Ba Đình, Hà Nội', 'Cá nhân');
 
--- 4. Dữ liệu bảng tblJob
+-- 3. Dữ liệu bảng tblJob
 INSERT INTO tblJob (jobName, description, skill)
 VALUES ('Giúp việc nhà', 'Dọn dẹp phòng khách, bếp, vệ sinh nhà cửa',
         'Sạch sẽ, trung thực, biết sử dụng thiết bị gia dụng'),
@@ -55,7 +50,7 @@ VALUES ('Giúp việc nhà', 'Dọn dẹp phòng khách, bếp, vệ sinh nhà c
        ('Bốc vác', 'Bốc xếp hàng hóa lên xe tải hoặc kho', 'Sức khỏe cực tốt, cẩn thận với hàng dễ vỡ'),
        ('Lễ tân sự kiện', 'Đón khách, hướng dẫn vị trí, ghi danh', 'Ngoại hình khá, giao tiếp tốt, tiếng Anh cơ bản');
 
--- 5. Dữ liệu bảng tblShift
+-- 4. Dữ liệu bảng tblShift
 INSERT INTO tblShift (workingDate, startTime, endTime)
 VALUES ('2026-04-20', '00:00:00', '03:00:00'),
        ('2026-04-20', '03:00:00', '06:00:00'),
@@ -120,17 +115,17 @@ VALUES ('2026-04-20', '00:00:00', '03:00:00'),
        ('2026-04-26', '18:00:00', '21:00:00'),
        ('2026-04-26', '21:00:00', '23:59:59');
 
--- 6. Dữ liệu bảng tblContract
-INSERT INTO tblContract (contractDate, paymentMethod, status, salesManagerId, customerId)
+-- 5. Dữ liệu bảng tblContract
+INSERT INTO tblContract (contractDate, paymentMethod, status, userId, customerId)
 VALUES ('2026-04-20', 'Tiền mặt', 'Đã thanh toán', 1, 1),
        ('2026-04-21', 'Chuyển khoản', 'Đã xác nhận', 1, 2);
 
--- 7. Dữ liệu bảng tblContractJob
+-- 6. Dữ liệu bảng tblContractJob
 INSERT INTO tblContractJob (contractId, jobId)
 VALUES (1, 1),
        (2, 5);
 
--- 8. Dữ liệu bảng tblContractJobShift
+-- 7. Dữ liệu bảng tblContractJobShift
 INSERT INTO tblContractJobShift (requiredWorkers, agreedWage, shiftId, contractJobId)
 VALUES (1, 150000.0, 19, 1),
        (2, 200000.0, 20, 2),

@@ -6,7 +6,7 @@ package view;
 
 import dao.JobDAO;
 import model.Job;
-import model.SalesManager;
+import model.User;
 
 import javax.swing.*;
 
@@ -17,13 +17,13 @@ import javax.swing.*;
 public class AddJobFrm extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AddJobFrm.class.getName());
-    private SalesManager salesManager;
+    private User user;
 
     /**
      * Creates new form AddJobFrm
      */
-    public AddJobFrm(SalesManager salesManager) {
-        this.salesManager = salesManager;
+    public AddJobFrm(User user) {
+        this.user = user;
         initComponents();
         this.setLocationRelativeTo(null);
     }

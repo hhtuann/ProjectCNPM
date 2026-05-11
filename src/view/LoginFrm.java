@@ -5,7 +5,6 @@
 package view;
 
 import dao.UserDAO;
-import model.SalesManager;
 import model.User;
 
 import javax.swing.*;
@@ -126,8 +125,7 @@ public class LoginFrm extends javax.swing.JFrame {
         UserDAO userDAO = new UserDAO();
         if (userDAO.checkLogin(user)) {
             if ("Sales Manager".equals(user.getRole())) {
-                SalesManager salesManager = new SalesManager(user);
-                SalesManagerHomeFrm salesManagerHomeFrm = new SalesManagerHomeFrm(salesManager);
+                SalesManagerHomeFrm salesManagerHomeFrm = new SalesManagerHomeFrm(user);
                 salesManagerHomeFrm.setVisible(true);
                 this.dispose();
             } else {

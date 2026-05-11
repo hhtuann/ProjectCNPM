@@ -205,7 +205,7 @@ public class SearchJobFrm extends javax.swing.JFrame {
 
     private void btnAddJobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddJobActionPerformed
         // TODO add your handling code here:
-        AddJobFrm addJobFrm = new AddJobFrm(this.contract.getSalesManager());
+        AddJobFrm addJobFrm = new AddJobFrm(this.contract.getUser());
         addJobFrm.setVisible(true);
     }//GEN-LAST:event_btnAddJobActionPerformed
 

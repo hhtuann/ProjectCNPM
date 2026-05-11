@@ -7,7 +7,7 @@ package view;
 import dao.CustomerDAO;
 import model.Contract;
 import model.Customer;
-import model.SalesManager;
+import model.User;
 
 import javax.swing.table.DefaultTableModel;
 import java.time.format.DateTimeFormatter;
@@ -22,15 +22,15 @@ import static javax.swing.SwingUtilities.isLeftMouseButton;
 public class SearchCustomerFrm extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SearchCustomerFrm.class.getName());
-    private SalesManager salesManager;
+    private User user;
     private ArrayList<Customer> customers = new ArrayList<>();
     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     /**
      * Creates new form SearchCustomerFrm
      */
-    public SearchCustomerFrm(SalesManager salesManager) {
-        this.salesManager = salesManager;
+    public SearchCustomerFrm(User user) {
+        this.user = user;
         initComponents();
         this.setLocationRelativeTo(null);
 
@@ -220,7 +220,7 @@ public class SearchCustomerFrm extends javax.swing.JFrame {
 
     private void btnAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCustomerActionPerformed
         // TODO add your handling code here:
-        AddCustomerFrm addCustomerFrm = new AddCustomerFrm(this.salesManager);
+        AddCustomerFrm addCustomerFrm = new AddCustomerFrm(this.user);
         addCustomerFrm.setVisible(true);
     }//GEN-LAST:event_btnAddCustomerActionPerformed
 
@@ -237,7 +237,7 @@ public class SearchCustomerFrm extends javax.swing.JFrame {
 
             Contract contract = new Contract();
             contract.setCustomer(customer);
-            contract.setSalesManager(this.salesManager);
+            contract.setUser(this.user);
 
             CreateContractFrm createContractFrm = new CreateContractFrm(contract);
             createContractFrm.setVisible(true);

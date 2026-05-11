@@ -6,7 +6,7 @@ package view;
 
 import dao.CustomerDAO;
 import model.Customer;
-import model.SalesManager;
+import model.User;
 
 import javax.swing.*;
 import java.time.LocalDate;
@@ -19,14 +19,14 @@ import java.time.format.DateTimeFormatter;
 public class AddCustomerFrm extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AddCustomerFrm.class.getName());
-    private SalesManager salesManager;
+    private User user;
     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     /**
      * Creates new form AddCustomerFrm
      */
-    public AddCustomerFrm(SalesManager salesManager) {
-        this.salesManager = salesManager;
+    public AddCustomerFrm(User user) {
+        this.user = user;
         initComponents();
         this.setLocationRelativeTo(null);
     }

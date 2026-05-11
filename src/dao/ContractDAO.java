@@ -23,7 +23,7 @@ public class ContractDAO extends DAO {
             psContract.setDate(1, Date.valueOf(contract.getContractDate()));
             psContract.setString(2, contract.getPaymentMethod());
             psContract.setString(3, contract.getStatus());
-            psContract.setInt(4, contract.getSalesManager().getId());
+            psContract.setInt(4, contract.getUser().getId());
             psContract.setInt(5, contract.getCustomer().getId());
             psContract.executeUpdate();
 
