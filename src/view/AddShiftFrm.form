@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-  <NonVisualComponents>
-    <Component class="javax.swing.JTextField" name="jTextField1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
-    </Component>
-  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="title" type="java.lang.String" value="Th&#xea;m ca l&#xe0;m - Ch&#x103;m s&#xf3;c tr&#x1ebb; em"/>
@@ -168,7 +161,7 @@
                               </Group>
                               <Component id="lblErrorAgreeWage" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="253" max="32767" attributes="0"/>
+                          <EmptySpace min="253" pref="262" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -178,29 +171,29 @@
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtWorkingDate" min="-2" pref="115" max="-2" attributes="0"/>
+                                          <Component id="pkrWorkingDate" min="-2" pref="149" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="lblErrorWorkingDate" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtStartTime" min="-2" pref="115" max="-2" attributes="0"/>
+                                          <Component id="pkrStartTime" min="-2" pref="105" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="lblErrorStartTime" max="32767" attributes="0"/>
+                                      <Component id="lblErrorStartTime" min="-2" pref="175" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="txtEndTime" min="-2" pref="115" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="pkrEndTime" min="-2" pref="105" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="lblErrorEndTime" max="32767" attributes="0"/>
+                                      <Component id="lblErrorEndTime" min="-2" pref="178" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Component id="btnSearchShift" min="-2" pref="78" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -221,11 +214,11 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtStartTime" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtEndTime" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnSearchShift" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtWorkingDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="pkrWorkingDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="pkrStartTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="pkrEndTime" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -263,21 +256,15 @@
             <Property name="text" type="java.lang.String" value="Ng&#xe0;y l&#xe0;m:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtWorkingDate">
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Gi&#x1edd; b&#x1eaf;t &#x111;&#x1ea7;u: "/>
+            <Property name="text" type="java.lang.String" value="Gi&#x1edd; b&#x1eaf;t &#x111;&#x1ea7;u:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtStartTime">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="text" type="java.lang.String" value="Gi&#x1edd; k&#x1ebf;t th&#xfa;c:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtEndTime">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
@@ -357,57 +344,57 @@
         </Container>
         <Component class="javax.swing.JLabel" name="lblErrorWorkingDate">
           <Properties>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="10" style="2"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblErrorStartTime">
           <Properties>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="10" style="2"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblErrorEndTime">
           <Properties>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="10" style="2"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblErrorRequiredWorker">
           <Properties>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="10" style="2"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblErrorAgreeWage">
           <Properties>
+            <Property name="text" type="java.lang.String" value=" "/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="10" style="2"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
@@ -422,6 +409,12 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddShiftActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="com.github.lgooddatepicker.components.DatePicker" name="pkrWorkingDate">
+        </Component>
+        <Component class="com.github.lgooddatepicker.components.TimePicker" name="pkrStartTime">
+        </Component>
+        <Component class="com.github.lgooddatepicker.components.TimePicker" name="pkrEndTime">
         </Component>
       </SubComponents>
     </Container>

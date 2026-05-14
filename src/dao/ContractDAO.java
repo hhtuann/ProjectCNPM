@@ -14,7 +14,7 @@ public class ContractDAO extends DAO {
     }
 
     public boolean addContract(Contract contract) {
-        String sqlContract = "INSERT INTO tblContract (contractDate, paymentMethod, status, salesManagerId, customerId) VALUES (?, ?, ?, ?, ?)";
+        String sqlContract = "INSERT INTO tblContract (contractDate, paymentMethod, status, userId, customerId) VALUES (?, ?, ?, ?, ?)";
 
         try {
             con.setAutoCommit(false);

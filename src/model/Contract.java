@@ -61,6 +61,7 @@ public class Contract implements Serializable {
     }
 
     public double getTotalJobWage() {
+        calculateTotalJobWage();
         return totalJobWage;
     }
 

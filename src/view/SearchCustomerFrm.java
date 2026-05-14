@@ -241,6 +241,7 @@ public class SearchCustomerFrm extends javax.swing.JFrame {
 
             CreateContractFrm createContractFrm = new CreateContractFrm(contract);
             createContractFrm.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_tblCustomerMouseClicked
 

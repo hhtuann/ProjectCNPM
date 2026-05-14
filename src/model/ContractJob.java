@@ -45,6 +45,7 @@ public class ContractJob implements Serializable {
     }
 
     public double getTotalShiftWage() {
+        calculateTotalShiftWage();
         return totalShiftWage;
     }
 

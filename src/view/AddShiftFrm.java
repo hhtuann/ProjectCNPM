@@ -55,6 +55,7 @@ public class AddShiftFrm extends JFrame {
 
         initComponents();
         this.setLocationRelativeTo(null);
+        settingLGoodDatePicker();
 
         DefaultTableModel tableModel = (DefaultTableModel) tblContractJobShift.getModel();
         tableModel.setRowCount(0);
@@ -81,16 +82,12 @@ public class AddShiftFrm extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblContractJobShift = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        txtWorkingDate = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtStartTime = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtEndTime = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtRequiredWorker = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -105,10 +102,11 @@ public class AddShiftFrm extends JFrame {
         lblErrorAgreeWage = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         btnAddShift = new javax.swing.JButton();
+        pkrWorkingDate = new com.github.lgooddatepicker.components.DatePicker();
+        pkrStartTime = new com.github.lgooddatepicker.components.TimePicker();
+        pkrEndTime = new com.github.lgooddatepicker.components.TimePicker();
         btnSave = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-
-        jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Thêm ca làm - " + this.contractJob.getJob().getJobName());
@@ -145,7 +143,7 @@ public class AddShiftFrm extends JFrame {
 
         jLabel4.setText("Ngày làm:");
 
-        jLabel5.setText("Giờ bắt đầu: ");
+        jLabel5.setText("Giờ bắt đầu:");
 
         jLabel6.setText("Giờ kết thúc:");
 
@@ -184,29 +182,29 @@ public class AddShiftFrm extends JFrame {
             tblShift.getColumnModel().getColumn(0).setMaxWidth(40);
         }
 
+        lblErrorWorkingDate.setText(" ");
         lblErrorWorkingDate.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
         lblErrorWorkingDate.setForeground(new java.awt.Color(255, 0, 0));
-        lblErrorWorkingDate.setText(" ");
 
+        lblErrorStartTime.setText(" ");
         lblErrorStartTime.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
         lblErrorStartTime.setForeground(new java.awt.Color(255, 0, 0));
-        lblErrorStartTime.setText(" ");
 
+        lblErrorEndTime.setText(" ");
         lblErrorEndTime.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
         lblErrorEndTime.setForeground(new java.awt.Color(255, 0, 0));
-        lblErrorEndTime.setText(" ");
 
+        lblErrorRequiredWorker.setText(" ");
         lblErrorRequiredWorker.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
         lblErrorRequiredWorker.setForeground(new java.awt.Color(255, 0, 0));
-        lblErrorRequiredWorker.setText(" ");
 
+        lblErrorAgreeWage.setText(" ");
         lblErrorAgreeWage.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
         lblErrorAgreeWage.setForeground(new java.awt.Color(255, 0, 0));
-        lblErrorAgreeWage.setText(" ");
 
         jLabel9.setText("Để thêm các ca làm đã chọn, click Thêm.");
 
-        btnAddShift.setText("Thêm");
+        btnAddShift.setText("Thêm...");
         btnAddShift.addActionListener(this::btnAddShiftActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -230,7 +228,7 @@ public class AddShiftFrm extends JFrame {
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(txtAgreedWage, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addComponent(lblErrorAgreeWage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGap(253, 262, Short.MAX_VALUE))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(jScrollPane2)
@@ -239,23 +237,23 @@ public class AddShiftFrm extends JFrame {
                                                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                                                 .addComponent(jLabel4)
                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                .addComponent(txtWorkingDate, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                .addComponent(pkrWorkingDate, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                         .addComponent(lblErrorWorkingDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                                .addComponent(jLabel5)
-                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                .addComponent(txtStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                        .addComponent(lblErrorStartTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                                .addComponent(jLabel6)
-                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                .addComponent(txtEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                        .addComponent(lblErrorEndTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                .addComponent(jLabel5)
+                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                .addComponent(pkrStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                        .addComponent(lblErrorStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                                .addComponent(jLabel6)
+                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                .addComponent(pkrEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                        .addComponent(lblErrorEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                 .addComponent(btnSearchShift, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                                 .addComponent(jLabel9)
@@ -269,11 +267,11 @@ public class AddShiftFrm extends JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel5)
                                         .addComponent(jLabel4)
-                                        .addComponent(txtStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel6)
-                                        .addComponent(txtEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(btnSearchShift)
-                                        .addComponent(txtWorkingDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(pkrWorkingDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(pkrStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(pkrEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(lblErrorWorkingDate)
@@ -339,55 +337,30 @@ public class AddShiftFrm extends JFrame {
 
     private void btnSearchShiftActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnSearchShiftActionPerformed
         // TODO add your handling code here:
-        String workingDateString = txtWorkingDate.getText();
-        String startTimeString = txtStartTime.getText();
-        String endTimeString = txtEndTime.getText();
-
         lblErrorWorkingDate.setText(" ");
         lblErrorStartTime.setText(" ");
         lblErrorEndTime.setText(" ");
 
         boolean isValid = true;
 
-        LocalDate workingDate = null;
-        if (workingDateString.isEmpty()) {
+        LocalDate workingDate = pkrWorkingDate.getDate();
+        if (workingDate == null) {
             lblErrorWorkingDate.setText("*Vui lòng nhập ngày làm việc");
             isValid = false;
-        } else {
-            try {
-                workingDate = LocalDate.parse(workingDateString, dateFormatter);
-            } catch (Exception e) {
-                lblErrorWorkingDate.setText("*Sai định dạng ngày (dd/MM/yyyy)");
-                isValid = false;
-            }
         }
 
-        LocalTime startTime = null;
-        if (startTimeString.isEmpty()) {
+        LocalTime startTime = pkrStartTime.getTime();
+        if (startTime == null) {
             lblErrorStartTime.setText("*Vui lòng nhập giờ bắt đầu");
             isValid = false;
-        } else {
-            try {
-                startTime = LocalTime.parse(startTimeString, timeFormatter);
-            } catch (Exception e) {
-                lblErrorStartTime.setText("Sai định dạng giờ (HH:mm)");
-                isValid = false;
-            }
         }
 
-        LocalTime endTime = null;
-        if (endTimeString.isEmpty()) {
+        LocalTime endTime = pkrEndTime.getTime();
+        if (endTime == null) {
             lblErrorEndTime.setText("*Vui lòng nhập giờ kết thúc");
             isValid = false;
-        } else {
-            try {
-                endTime = LocalTime.parse(endTimeString, timeFormatter);
-            } catch (Exception e) {
-                lblErrorEndTime.setText("Sai định dạng giờ (HH:mm)");
-                isValid = false;
-            }
         }
-
+//
         if (startTime != null && endTime != null && !endTime.isAfter(startTime)) {
             lblErrorStartTime.setText("*Giờ kết thúc phải sau giờ bắt đầu");
             lblErrorEndTime.setText("*Giờ kết thúc phải sau giờ bắt đầu");
@@ -481,19 +454,19 @@ public class AddShiftFrm extends JFrame {
                 );
 
                 selectedShifts.add(selectedShift);
-                if(this.contractJobShifts.contains(selectedShift)) {
+                if (this.contractJobShifts.contains(selectedShift)) {
                     tableModelShifts.setValueAt(false, i, 4);
                     existedShifts.add(selectedShift);
                 }
             }
         }
 
-        if(existedShifts.isEmpty()) {
-            for(ContractJobShift cjs: selectedShifts) {
+        if (existedShifts.isEmpty()) {
+            for (ContractJobShift cjs : selectedShifts) {
                 tableModelShifts.setValueAt(false, cjs.getId(), 4);
 
                 this.contractJobShifts.add(cjs);
-                tableModelContractJobShifts.addRow(new Object[] {
+                tableModelContractJobShifts.addRow(new Object[]{
                         tableModelContractJobShifts.getRowCount() + 1,
                         cjs.getShift().getWorkingDate().format(dateFormatter),
                         cjs.getShift().getStartTime().format(timeFormatter),
@@ -519,7 +492,6 @@ public class AddShiftFrm extends JFrame {
             return;
         }
 
-        this.contractJob.calculateTotalShiftWage();
         if (!this.contract.getContractJobs().contains(this.contractJob)) {
             this.contract.getContractJobs().add(this.contractJob);
         }
@@ -582,6 +554,33 @@ public class AddShiftFrm extends JFrame {
         }
     }
 
+    private void settingLGoodDatePicker() {
+        com.github.lgooddatepicker.components.DatePickerSettings dateSettings = pkrWorkingDate.getSettings();
+        LocalDate today = LocalDate.now();
+        LocalDate nextMonday = today.with(java.time.temporal.TemporalAdjusters.next(java.time.DayOfWeek.MONDAY));
+        LocalDate nextSunday = nextMonday.plusDays(6);
+        dateSettings.setDateRangeLimits(nextMonday, nextSunday);
+        dateSettings.setFormatForDatesCommonEra(dateFormatter);
+
+        com.github.lgooddatepicker.components.TimePickerSettings startTimeSettings = pkrStartTime.getSettings();
+        startTimeSettings.generatePotentialMenuTimes(
+                com.github.lgooddatepicker.components.TimePickerSettings.TimeIncrement.OneHour,
+                LocalTime.of(0, 0),
+                LocalTime.of(23, 0)
+        );
+        startTimeSettings.setFormatForDisplayTime(timeFormatter);
+        startTimeSettings.setFormatForMenuTimes("HH:mm");
+
+        com.github.lgooddatepicker.components.TimePickerSettings endTimeSettings = pkrEndTime.getSettings();
+        endTimeSettings.generatePotentialMenuTimes(
+                com.github.lgooddatepicker.components.TimePickerSettings.TimeIncrement.OneHour,
+                LocalTime.of(0, 50),
+                LocalTime.of(23, 50)
+        );
+        endTimeSettings.setFormatForDisplayTime(timeFormatter);
+        endTimeSettings.setFormatForMenuTimes("HH:mm");
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddShift;
     private javax.swing.JButton btnBack;
@@ -596,18 +595,17 @@ public class AddShiftFrm extends JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblErrorAgreeWage;
     private javax.swing.JLabel lblErrorEndTime;
     private javax.swing.JLabel lblErrorRequiredWorker;
     private javax.swing.JLabel lblErrorStartTime;
     private javax.swing.JLabel lblErrorWorkingDate;
+    private com.github.lgooddatepicker.components.TimePicker pkrEndTime;
+    private com.github.lgooddatepicker.components.TimePicker pkrStartTime;
+    private com.github.lgooddatepicker.components.DatePicker pkrWorkingDate;
     private javax.swing.JTable tblContractJobShift;
     private javax.swing.JTable tblShift;
     private javax.swing.JTextField txtAgreedWage;
-    private javax.swing.JTextField txtEndTime;
     private javax.swing.JTextField txtRequiredWorker;
-    private javax.swing.JTextField txtStartTime;
-    private javax.swing.JTextField txtWorkingDate;
     // End of variables declaration//GEN-END:variables
 }

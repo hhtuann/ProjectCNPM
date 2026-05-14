@@ -35,14 +35,7 @@ CREATE TABLE tblUser
     role        VARCHAR(255)
 );
 
--- 2. Tạo bảng tblSalesManager (Quan hệ 1-1 kế thừa từ tblUser)
-CREATE TABLE tblSalesManager
-(
-    userId INT(10) PRIMARY KEY,
-    FOREIGN KEY (userId) REFERENCES tblUser (id) ON DELETE CASCADE
-);
-
--- 3. Tạo bảng tblCustomer
+-- 2. Tạo bảng tblCustomer
 CREATE TABLE tblCustomer
 (
     id          INT(10) AUTO_INCREMENT PRIMARY KEY,
@@ -55,7 +48,7 @@ CREATE TABLE tblCustomer
     type        VARCHAR(255)
 );
 
--- 4. Tạo bảng tblJob
+-- 3. Tạo bảng tblJob
 CREATE TABLE tblJob
 (
     id          INT(10) AUTO_INCREMENT PRIMARY KEY,
@@ -64,7 +57,7 @@ CREATE TABLE tblJob
     skill       VARCHAR(255)
 );
 
--- 5. Tạo bảng tblShift
+-- 4. Tạo bảng tblShift
 CREATE TABLE tblShift
 (
     id          INT(10) AUTO_INCREMENT PRIMARY KEY,
@@ -73,20 +66,20 @@ CREATE TABLE tblShift
     endTime     TIME
 );
 
--- 6. Tạo bảng tblContract
+-- 5. Tạo bảng tblContract
 CREATE TABLE tblContract
 (
     id             INT(10) AUTO_INCREMENT PRIMARY KEY,
     contractDate   DATE,
     paymentMethod  VARCHAR(255),
     status         VARCHAR(255),
-    salesManagerId INT(10),
+    userId INT(10),
     customerId     INT(10),
-    FOREIGN KEY (salesManagerId) REFERENCES tblSalesManager (userId),
+    FOREIGN KEY (userId) REFERENCES tblUser (id),
     FOREIGN KEY (customerId) REFERENCES tblCustomer (id)
 );
 
--- 7. Tạo bảng tblContractJob
+-- 6. Tạo bảng tblContractJob
 CREATE TABLE tblContractJob
 (
     id         INT(10) AUTO_INCREMENT PRIMARY KEY,
@@ -96,7 +89,7 @@ CREATE TABLE tblContractJob
     FOREIGN KEY (jobId) REFERENCES tblJob (id)
 );
 
--- 8. Tạo bảng tblContractJobShift
+-- 7. Tạo bảng tblContractJobShift
 CREATE TABLE tblContractJobShift
 (
     id              INT(10) AUTO_INCREMENT PRIMARY KEY,
