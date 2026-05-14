@@ -55,10 +55,10 @@ public class CreateContractFrm extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         btnConfirmContract = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-        txtPaymentMethod = new javax.swing.JTextField();
+        cbxPaymentMethod = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Lập hợp đồng - " + this.contract.getCustomer().getFullName());
+        setTitle("Lập hợp đồng");
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("Danh sách đầu việc/ca làm"));
 
@@ -93,13 +93,15 @@ public class CreateContractFrm extends javax.swing.JFrame {
         btnAddJob.setText("Thêm");
         btnAddJob.addActionListener(this::btnAddJobActionPerformed);
 
-        jLabel9.setText("Hình thức thanh toán: ");
+        jLabel9.setText("Hình thức thanh toán:");
 
         btnConfirmContract.setText("Xác nhận hợp đồng");
         btnConfirmContract.addActionListener(this::btnConfirmContractActionPerformed);
 
         btnBack.setText("Quay lại");
         btnBack.addActionListener(this::btnBackActionPerformed);
+
+        cbxPaymentMethod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chuyển khoản qua Công ty", "Tiền mặt tại văn phòng Công ty", "Thanh toán cho nhân công" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,19 +111,19 @@ public class CreateContractFrm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPaymentMethod))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 330, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAddJob))
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnConfirmContract)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBack)))
+                        .addComponent(btnBack))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbxPaymentMethod, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -136,7 +138,7 @@ public class CreateContractFrm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(txtPaymentMethod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbxPaymentMethod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
@@ -160,11 +162,11 @@ public class CreateContractFrm extends javax.swing.JFrame {
             return;
         }
 
-        String paymentMethod = txtPaymentMethod.getText().trim();
-        if (paymentMethod.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Vui lòng nhập hình thức thanh toán!", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
+        String paymentMethod = cbxPaymentMethod.getSelectedItem().toString();
+//        if (paymentMethod == null) {
+//            JOptionPane.showMessageDialog(this, "Vui lòng nhập hình thức thanh toán!", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+//            return;
+//        }
 
         this.contract.setPaymentMethod(paymentMethod);
         this.contract.calculateTotalJobWage();
@@ -258,10 +260,10 @@ public class CreateContractFrm extends javax.swing.JFrame {
     private javax.swing.JButton btnAddJob;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnConfirmContract;
+    private javax.swing.JComboBox<String> cbxPaymentMethod;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblContractJob;
-    private javax.swing.JTextField txtPaymentMethod;
     // End of variables declaration//GEN-END:variables
 }

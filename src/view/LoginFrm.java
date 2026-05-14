@@ -141,6 +141,9 @@ public class LoginFrm extends javax.swing.JFrame {
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
             txtPassword.requestFocus();
         }
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_TAB) {
+            txtPassword.requestFocus();
+        }
     }//GEN-LAST:event_txtUsernameKeyPressed
 
     private void txtPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyPressed

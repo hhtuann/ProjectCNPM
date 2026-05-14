@@ -36,30 +36,20 @@ public class ConfirmContractFrm extends javax.swing.JFrame {
         Customer customer = this.contract.getCustomer();
         lblCustomerFullName.setText(customer.getFullName());
         lblCustomerIdCard.setText(customer.getIdCard());
+        lblCustomerDateOfBirth.setText(customer.getDateOfBirth().format(dateFormatter));
         lblCustomerAddress.setText(customer.getAddress());
         lblCustomerEmail.setText(customer.getEmail());
         lblCustomerPhone.setText(customer.getPhone());
         lblCustomerType.setText(customer.getType());
 
-        if (customer.getDateOfBirth() != null) {
-            lblCustomerDateOfBirth.setText(customer.getDateOfBirth().format(dateFormatter));
-        } else {
-            lblCustomerDateOfBirth.setText("null");
-        }
-
         User user = this.contract.getUser();
         lblUserFullName.setText(user.getFullName());
         lblUserIdCard.setText(user.getIdCard());
+        lblUserDateOfBirth.setText(user.getDateOfBirth().format(dateFormatter));
         lblUserAddress.setText(user.getAddress());
         lblUserEmail.setText(user.getEmail());
         lblUserPhone.setText(user.getPhone());
         lblUserRole.setText(user.getRole());
-
-        if (user.getDateOfBirth() != null) {
-            lblUserDateOfBirth.setText(user.getDateOfBirth().format(dateFormatter));
-        } else {
-            lblUserDateOfBirth.setText("null");
-        }
 
         DefaultTableModel tableModel = (DefaultTableModel) tblContractJob.getModel();
         tableModel.setRowCount(0);
@@ -80,7 +70,7 @@ public class ConfirmContractFrm extends javax.swing.JFrame {
         }
 
         lblPaymentMethod.setText(this.contract.getPaymentMethod());
-        lblTotalWage.setText(String.format("%,.0f VND", this.contract.getTotalJobWage()));
+        lblTotalWage.setText(String.format("%,.0f VNĐ", this.contract.getTotalJobWage()));
         lblContractDate.setText(this.contract.getContractDate().format(dateFormatter));
     }
 
@@ -231,19 +221,19 @@ public class ConfirmContractFrm extends javax.swing.JFrame {
         jScrollPane3.setBorder(javax.swing.BorderFactory.createTitledBorder("Danh sách đầu việc/ca làm"));
 
         tblContractJob.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+                new Object[][]{
 
-            },
-            new String [] {
-                "STT", "Tên đầu việc", "Ngày làm", "Giờ bắt đầu", "Giờ kết thúc", "Số nhân công", "Đơn giá"
-            }
+                },
+                new String[]{
+                        "STT", "Tên đầu việc", "Ngày làm", "Giờ bắt đầu", "Giờ kết thúc", "Số nhân công", "Đơn giá"
+                }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+            boolean[] canEdit = new boolean[]{
+                    false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         jScrollPane3.setViewportView(tblContractJob);
@@ -251,23 +241,20 @@ public class ConfirmContractFrm extends javax.swing.JFrame {
             tblContractJob.getColumnModel().getColumn(0).setMaxWidth(40);
         }
 
-        jPanel3.setLayout(new java.awt.GridLayout(1, 6));
+        jPanel3.setLayout(new java.awt.GridLayout(3, 2));
 
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel17.setText("Hình thức thanh toán:  ");
         jPanel3.add(jLabel17);
 
         lblPaymentMethod.setText("Tiền mặt");
         jPanel3.add(lblPaymentMethod);
 
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel16.setText("Tổng tiền công:  ");
         jPanel3.add(jLabel16);
 
         lblTotalWage.setText("1.000.000 VND");
         jPanel3.add(lblTotalWage);
 
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel15.setText("Ngày ký:  ");
         jPanel3.add(jLabel15);
 
@@ -283,39 +270,39 @@ public class ConfirmContractFrm extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnSave)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBack))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jScrollPane3)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addComponent(btnSave)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnBack))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)))
+                                .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSave)
-                    .addComponent(btnBack))
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnSave)
+                                        .addComponent(btnBack))
+                                .addContainerGap())
         );
 
         pack();
