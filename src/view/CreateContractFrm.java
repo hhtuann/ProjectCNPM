@@ -58,7 +58,7 @@ public class CreateContractFrm extends javax.swing.JFrame {
         cbxPaymentMethod = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Lập hợp đồng");
+        setTitle("Lập hợp đồng - KH: " + this.contract.getCustomer().getFullName());
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("Danh sách đầu việc/ca làm"));
 
@@ -158,17 +158,11 @@ public class CreateContractFrm extends javax.swing.JFrame {
     private void btnConfirmContractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmContractActionPerformed
         // TODO add your handling code here:
         if (this.contractJobs.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Vui lòng thêm ít nhất một đầu việc vào hợp đồng!", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Vui lòng thêm ít nhất một đầu việc vào hợp đồng.", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        String paymentMethod = cbxPaymentMethod.getSelectedItem().toString();
-//        if (paymentMethod == null) {
-//            JOptionPane.showMessageDialog(this, "Vui lòng nhập hình thức thanh toán!", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
-//            return;
-//        }
-
-        this.contract.setPaymentMethod(paymentMethod);
+        this.contract.setPaymentMethod(cbxPaymentMethod.getSelectedItem().toString());
         this.contract.calculateTotalJobWage();
         this.contract.setContractDate(java.time.LocalDate.now());
 
@@ -200,7 +194,7 @@ public class CreateContractFrm extends javax.swing.JFrame {
             itemDelete.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (JOptionPane.showConfirmDialog(null, "Bạn có xác nhận xoá ca làm này?", "Xác nhận", JOptionPane.YES_NO_OPTION) == 0) {
+                    if (JOptionPane.showConfirmDialog(CreateContractFrm.this, "Bạn có xác nhận xoá ca làm này?", "Xác nhận", JOptionPane.YES_NO_OPTION) == 0) {
                         deleleShiftAtRow(row);
                     }
                 }

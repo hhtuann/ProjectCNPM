@@ -138,10 +138,7 @@ public class LoginFrm extends javax.swing.JFrame {
 
     private void txtUsernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsernameKeyPressed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
-            txtPassword.requestFocus();
-        }
-        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_TAB) {
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER || evt.getKeyCode() == java.awt.event.KeyEvent.VK_TAB) {
             txtPassword.requestFocus();
         }
     }//GEN-LAST:event_txtUsernameKeyPressed

@@ -109,7 +109,7 @@ public class AddShiftFrm extends JFrame {
         btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Thêm ca làm - " + this.contractJob.getJob().getJobName());
+        setTitle("Thêm ca làm - ĐV: " + this.contractJob.getJob().getJobName());
 
         jScrollPane3.setBorder(javax.swing.BorderFactory.createTitledBorder("Danh sách ca làm đã đăng ký"));
 
@@ -204,7 +204,7 @@ public class AddShiftFrm extends JFrame {
 
         jLabel9.setText("Để thêm các ca làm đã chọn, click Thêm.");
 
-        btnAddShift.setText("Thêm...");
+        btnAddShift.setText("Thêm");
         btnAddShift.addActionListener(this::btnAddShiftActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -228,32 +228,32 @@ public class AddShiftFrm extends JFrame {
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(txtAgreedWage, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addComponent(lblErrorAgreeWage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                .addGap(253, 262, Short.MAX_VALUE))
+                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(jScrollPane2)
                                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                                                 .addComponent(jLabel4)
                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                .addComponent(pkrWorkingDate, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                        .addComponent(lblErrorWorkingDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                .addComponent(pkrWorkingDate, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                        .addComponent(lblErrorWorkingDate, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(lblErrorStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                                                 .addComponent(jLabel5)
                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                .addComponent(pkrStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                        .addComponent(lblErrorStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                .addComponent(pkrStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                                                 .addComponent(jLabel6)
                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                .addComponent(pkrEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                .addComponent(pkrEndTime, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE))
                                                                         .addComponent(lblErrorEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(btnSearchShift, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                                 .addComponent(jLabel9)
@@ -461,7 +461,9 @@ public class AddShiftFrm extends JFrame {
             }
         }
 
-        if (existedShifts.isEmpty()) {
+        if (selectedShifts.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn ít nhất một ca làm để thêm.", "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+        } else if (existedShifts.isEmpty()) {
             for (ContractJobShift cjs : selectedShifts) {
                 tableModelShifts.setValueAt(false, cjs.getId(), 4);
 
@@ -572,11 +574,12 @@ public class AddShiftFrm extends JFrame {
         startTimeSettings.setFormatForMenuTimes("HH:mm");
 
         com.github.lgooddatepicker.components.TimePickerSettings endTimeSettings = pkrEndTime.getSettings();
-        endTimeSettings.generatePotentialMenuTimes(
-                com.github.lgooddatepicker.components.TimePickerSettings.TimeIncrement.OneHour,
-                LocalTime.of(0, 50),
-                LocalTime.of(23, 50)
-        );
+        ArrayList<LocalTime> desiredTimes = new ArrayList<>();
+        for (int hour = 0; hour < 24; ++hour) {
+            LocalTime time = LocalTime.of(hour, 50);
+            desiredTimes.add(time);
+        }
+        endTimeSettings.generatePotentialMenuTimes(desiredTimes);
         endTimeSettings.setFormatForDisplayTime(timeFormatter);
         endTimeSettings.setFormatForMenuTimes("HH:mm");
     }

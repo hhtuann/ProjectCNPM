@@ -73,4 +73,27 @@ public class CustomerDAO extends DAO {
         }
         return false;
     }
+
+    /**
+     * Hàm kiểm tra tồn tại số CCCD của khách hàng mới trong CSDL
+     *
+     * @param idCard
+     * @return true nếu đã tồn tại, false nếu không tồn tại
+     */
+    public boolean isIdCardExisted(String idCard) {
+        String sql = "SELECT COUNT(*) FROM tblCustomer WHERE idCard = ?";
+
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, idCard);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

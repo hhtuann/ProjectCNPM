@@ -134,43 +134,43 @@ public class ConfirmContractFrm extends javax.swing.JFrame {
         jLabel1.setText("Họ và tên:  ");
         jPanel1.add(jLabel1);
 
-        lblCustomerFullName.setText("Nguyễn Thế Công");
+        lblCustomerFullName.setText(" ");
         jPanel1.add(lblCustomerFullName);
 
         jLabel2.setText("CCCD:  ");
         jPanel1.add(jLabel2);
 
-        lblCustomerIdCard.setText("038289123450");
+        lblCustomerIdCard.setText(" ");
         jPanel1.add(lblCustomerIdCard);
 
         jLabel3.setText("Ngày sinh:  ");
         jPanel1.add(jLabel3);
 
-        lblCustomerDateOfBirth.setText("12/09/1989 ");
+        lblCustomerDateOfBirth.setText(" ");
         jPanel1.add(lblCustomerDateOfBirth);
 
         jLabel4.setText("Địa chỉ:  ");
         jPanel1.add(jLabel4);
 
-        lblCustomerAddress.setText("Hà Đông, Hà Nội ");
+        lblCustomerAddress.setText(" ");
         jPanel1.add(lblCustomerAddress);
 
         jLabel5.setText("Email:  ");
         jPanel1.add(jLabel5);
 
-        lblCustomerEmail.setText("congnt@gmail.com ");
+        lblCustomerEmail.setText(" ");
         jPanel1.add(lblCustomerEmail);
 
         jLabel6.setText("SĐT:  ");
         jPanel1.add(jLabel6);
 
-        lblCustomerPhone.setText("0373216789");
+        lblCustomerPhone.setText(" ");
         jPanel1.add(lblCustomerPhone);
 
         jLabel7.setText("Phân loại:  ");
         jPanel1.add(jLabel7);
 
-        lblCustomerType.setText("Gia đình");
+        lblCustomerType.setText(" ");
         jPanel1.add(lblCustomerType);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Thông tin nhân viên"));
@@ -179,61 +179,61 @@ public class ConfirmContractFrm extends javax.swing.JFrame {
         jLabel8.setText("Họ và tên:  ");
         jPanel2.add(jLabel8);
 
-        lblUserFullName.setText("Lê Văn An");
+        lblUserFullName.setText(" ");
         jPanel2.add(lblUserFullName);
 
         jLabel9.setText("CCCD:  ");
         jPanel2.add(jLabel9);
 
-        lblUserIdCard.setText("029200123456");
+        lblUserIdCard.setText(" ");
         jPanel2.add(lblUserIdCard);
 
         jLabel10.setText("Ngày sinh:  ");
         jPanel2.add(jLabel10);
 
-        lblUserDateOfBirth.setText("19/01/2000");
+        lblUserDateOfBirth.setText(" ");
         jPanel2.add(lblUserDateOfBirth);
 
         jLabel11.setText("Địa chỉ:  ");
         jPanel2.add(jLabel11);
 
-        lblUserAddress.setText("Cầu Giấy, Hà Nội");
+        lblUserAddress.setText(" ");
         jPanel2.add(lblUserAddress);
 
         jLabel12.setText("Email:  ");
         jPanel2.add(jLabel12);
 
-        lblUserEmail.setText("anlv@gmail.com");
+        lblUserEmail.setText(" ");
         jPanel2.add(lblUserEmail);
 
         jLabel13.setText("SĐT:  ");
         jPanel2.add(jLabel13);
 
-        lblUserPhone.setText("0389317544");
+        lblUserPhone.setText(" ");
         jPanel2.add(lblUserPhone);
 
         jLabel14.setText("Chức vụ:  ");
         jPanel2.add(jLabel14);
 
-        lblUserRole.setText("Quản lí kinh doanh");
+        lblUserRole.setText(" ");
         jPanel2.add(lblUserRole);
 
         jScrollPane3.setBorder(javax.swing.BorderFactory.createTitledBorder("Danh sách đầu việc/ca làm"));
 
         tblContractJob.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{
+            new Object [][] {
 
-                },
-                new String[]{
-                        "STT", "Tên đầu việc", "Ngày làm", "Giờ bắt đầu", "Giờ kết thúc", "Số nhân công", "Đơn giá"
-                }
+            },
+            new String [] {
+                "STT", "Tên đầu việc", "Ngày làm", "Giờ bắt đầu", "Giờ kết thúc", "Số nhân công", "Đơn giá"
+            }
         ) {
-            boolean[] canEdit = new boolean[]{
-                    false, false, false, false, false, false, false
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit[columnIndex];
+                return canEdit [columnIndex];
             }
         });
         jScrollPane3.setViewportView(tblContractJob);
@@ -246,19 +246,19 @@ public class ConfirmContractFrm extends javax.swing.JFrame {
         jLabel17.setText("Hình thức thanh toán:  ");
         jPanel3.add(jLabel17);
 
-        lblPaymentMethod.setText("Tiền mặt");
+        lblPaymentMethod.setText(" ");
         jPanel3.add(lblPaymentMethod);
 
         jLabel16.setText("Tổng tiền công:  ");
         jPanel3.add(jLabel16);
 
-        lblTotalWage.setText("1.000.000 VND");
+        lblTotalWage.setText(" ");
         jPanel3.add(lblTotalWage);
 
         jLabel15.setText("Ngày ký:  ");
         jPanel3.add(jLabel15);
 
-        lblContractDate.setText("16/03/2026");
+        lblContractDate.setText(" ");
         jPanel3.add(lblContractDate);
 
         btnSave.setText("Lưu hợp đồng");
@@ -270,39 +270,39 @@ public class ConfirmContractFrm extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane3)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addGap(0, 0, Short.MAX_VALUE)
-                                                .addComponent(btnSave)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btnBack))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)))
-                                .addContainerGap())
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnSave)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBack))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(btnSave)
-                                        .addComponent(btnBack))
-                                .addContainerGap())
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSave)
+                    .addComponent(btnBack))
+                .addContainerGap())
         );
 
         pack();

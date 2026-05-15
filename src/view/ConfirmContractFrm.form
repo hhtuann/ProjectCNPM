@@ -89,7 +89,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblCustomerFullName">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nguy&#x1ec5;n Th&#x1ebf; C&#xf4;ng"/>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
@@ -99,7 +99,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblCustomerIdCard">
           <Properties>
-            <Property name="text" type="java.lang.String" value="038289123450"/>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
@@ -109,7 +109,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblCustomerDateOfBirth">
           <Properties>
-            <Property name="text" type="java.lang.String" value="12/09/1989 "/>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
@@ -119,7 +119,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblCustomerAddress">
           <Properties>
-            <Property name="text" type="java.lang.String" value="H&#xe0; &#x110;&#xf4;ng, H&#xe0; N&#x1ed9;i "/>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
@@ -129,7 +129,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblCustomerEmail">
           <Properties>
-            <Property name="text" type="java.lang.String" value="congnt@gmail.com "/>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
@@ -139,7 +139,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblCustomerPhone">
           <Properties>
-            <Property name="text" type="java.lang.String" value="0373216789"/>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
@@ -149,7 +149,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblCustomerType">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Gia &#x111;&#xec;nh"/>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
       </SubComponents>
@@ -175,7 +175,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblUserFullName">
           <Properties>
-            <Property name="text" type="java.lang.String" value="L&#xea; V&#x103;n An"/>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
@@ -185,7 +185,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblUserIdCard">
           <Properties>
-            <Property name="text" type="java.lang.String" value="029200123456"/>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
@@ -195,7 +195,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblUserDateOfBirth">
           <Properties>
-            <Property name="text" type="java.lang.String" value="19/01/2000"/>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
@@ -205,7 +205,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblUserAddress">
           <Properties>
-            <Property name="text" type="java.lang.String" value="C&#x1ea7;u Gi&#x1ea5;y, H&#xe0; N&#x1ed9;i"/>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel12">
@@ -215,7 +215,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblUserEmail">
           <Properties>
-            <Property name="text" type="java.lang.String" value="anlv@gmail.com"/>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
@@ -225,7 +225,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblUserPhone">
           <Properties>
-            <Property name="text" type="java.lang.String" value="0389317544"/>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel14">
@@ -235,7 +235,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblUserRole">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xed; kinh doanh"/>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
       </SubComponents>
@@ -327,7 +327,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblPaymentMethod">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ti&#x1ec1;n m&#x1eb7;t"/>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel16">
@@ -337,7 +337,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblTotalWage">
           <Properties>
-            <Property name="text" type="java.lang.String" value="1.000.000 VND"/>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel15">
@@ -347,7 +347,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblContractDate">
           <Properties>
-            <Property name="text" type="java.lang.String" value="16/03/2026"/>
+            <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
         </Component>
       </SubComponents>

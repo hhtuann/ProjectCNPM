@@ -114,19 +114,3 @@ VALUES ('2026-05-25', '00:00:00', '02:50:00'),
        ('2026-05-31', '15:00:00', '17:50:00'),
        ('2026-05-31', '18:00:00', '20:50:00'),
        ('2026-05-31', '21:00:00', '23:50:00');
-
--- 5. Dữ liệu bảng tblContract
-INSERT INTO tblContract (contractDate, paymentMethod, status, userId, customerId)
-VALUES ('2026-04-20', 'Tiền mặt', 'Đã thanh toán', 1, 1),
-       ('2026-04-21', 'Chuyển khoản', 'Đã xác nhận', 1, 2);
-
--- 6. Dữ liệu bảng tblContractJob
-INSERT INTO tblContractJob (contractId, jobId)
-VALUES (1, 1),
-       (2, 5);
-
--- 7. Dữ liệu bảng tblContractJobShift
-INSERT INTO tblContractJobShift (requiredWorkers, agreedWage, shiftId, contractJobId)
-VALUES (1, 150000.0, 19, 1),
-       (2, 200000.0, 20, 2),
-       (2, 200000.0, 21, 2);

@@ -10,7 +10,9 @@ import model.User;
 
 import javax.swing.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 /**
  *
@@ -29,6 +31,7 @@ public class AddCustomerFrm extends javax.swing.JFrame {
         this.user = user;
         initComponents();
         this.setLocationRelativeTo(null);
+        settingLGoodDatePicker();
     }
 
     /**
@@ -46,7 +49,6 @@ public class AddCustomerFrm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtIdCard = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtDateOfBirth = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -54,7 +56,6 @@ public class AddCustomerFrm extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtPhone = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtType = new javax.swing.JTextField();
         lblErrorFullName = new javax.swing.JLabel();
         lblErrorIdCard = new javax.swing.JLabel();
         lblErrorDateOfBirth = new javax.swing.JLabel();
@@ -62,6 +63,8 @@ public class AddCustomerFrm extends javax.swing.JFrame {
         lblErrorEmail = new javax.swing.JLabel();
         lblErrorPhone = new javax.swing.JLabel();
         lblErrorType = new javax.swing.JLabel();
+        pkrDateOfBirth = new com.github.lgooddatepicker.components.DatePicker();
+        cbxType = new javax.swing.JComboBox<>();
         btnSave = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
@@ -113,6 +116,8 @@ public class AddCustomerFrm extends javax.swing.JFrame {
         lblErrorType.setForeground(new java.awt.Color(255, 0, 0));
         lblErrorType.setText(" ");
 
+        cbxType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Cá nhân", "Gia đình", "Doanh nghiệp"}));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -126,10 +131,10 @@ public class AddCustomerFrm extends javax.swing.JFrame {
                                                         .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                 .addGap(6, 6, 6)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(txtType, javax.swing.GroupLayout.Alignment.TRAILING)
                                                         .addComponent(lblErrorPhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(txtPhone)
-                                                        .addComponent(lblErrorType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                        .addComponent(lblErrorType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(cbxType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -145,10 +150,10 @@ public class AddCustomerFrm extends javax.swing.JFrame {
                                                         .addComponent(lblErrorAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(txtFullName)
                                                         .addComponent(txtIdCard)
-                                                        .addComponent(txtDateOfBirth)
                                                         .addComponent(txtAddress)
                                                         .addComponent(txtEmail)
-                                                        .addComponent(lblErrorEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                                        .addComponent(lblErrorEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(pkrDateOfBirth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -169,7 +174,7 @@ public class AddCustomerFrm extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel3)
-                                        .addComponent(txtDateOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(pkrDateOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblErrorDateOfBirth)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -193,7 +198,7 @@ public class AddCustomerFrm extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel7)
-                                        .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(cbxType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblErrorType))
         );
@@ -237,12 +242,12 @@ public class AddCustomerFrm extends javax.swing.JFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         String fullName = txtFullName.getText();
-        String dobString = txtDateOfBirth.getText();
+        LocalDate dateOfBirth = pkrDateOfBirth.getDate();
         String idCard = txtIdCard.getText();
         String phone = txtPhone.getText();
         String email = txtEmail.getText();
         String address = txtAddress.getText();
-        String type = txtType.getText();
+        String type = cbxType.getSelectedItem().toString();
 
         lblErrorFullName.setText(" ");
         lblErrorIdCard.setText(" ");
@@ -259,25 +264,21 @@ public class AddCustomerFrm extends javax.swing.JFrame {
             isValid = false;
         }
 
+        CustomerDAO customerDAO = new CustomerDAO();
         if (idCard.isEmpty()) {
             lblErrorIdCard.setText("*Vui lòng nhập số CCCD");
             isValid = false;
         } else if (!idCard.matches("\\d{12}")) {
-            lblErrorIdCard.setText("*CCCD phải là 12 chữ số");
+            lblErrorIdCard.setText("*Số CCCD phải là 12 chữ số");
+            isValid = false;
+        } else if(customerDAO.isIdCardExisted(idCard)) {
+            lblErrorIdCard.setText("*Số CCCD đã tồn tại");
             isValid = false;
         }
 
-        LocalDate dateOfBirth = null;
-        if (dobString.isEmpty()) {
+        if (dateOfBirth == null) {
             lblErrorDateOfBirth.setText("*Vui lòng nhập ngày sinh");
             isValid = false;
-        } else {
-            try {
-                dateOfBirth = LocalDate.parse(dobString, dateFormatter);
-            } catch (Exception e) {
-                lblErrorDateOfBirth.setText("*Sai định dạng ngày (dd/MM/yyyy)");
-                isValid = false;
-            }
         }
 
         if (address.isEmpty()) {
@@ -298,32 +299,32 @@ public class AddCustomerFrm extends javax.swing.JFrame {
             isValid = false;
         }
 
-        if (type.isEmpty()) {
-            lblErrorType.setText("*Vui lòng nhập phân loại");
-            isValid = false;
-        }
-
         if (!isValid) {
             return;
         }
 
-        CustomerDAO customerDAO = new CustomerDAO();
         if (customerDAO.addCustomer(new Customer(0, fullName, dateOfBirth, idCard, phone, email, address, type))) {
             JOptionPane.showMessageDialog(this, "Thêm khách hàng thành công!", "Thành công", JOptionPane.INFORMATION_MESSAGE);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Lỗi khi thêm khách hàng mới!", "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_btnSaveActionPerformed
+    }//GEN-LAST:event_btnSaveActionPerformedJ
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void settingLGoodDatePicker() {
+        com.github.lgooddatepicker.components.DatePickerSettings dateSettings = pkrDateOfBirth.getSettings();
+        dateSettings.setFormatForDatesCommonEra(dateFormatter);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSave;
+    private javax.swing.JComboBox<String> cbxType;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -339,12 +340,11 @@ public class AddCustomerFrm extends javax.swing.JFrame {
     private javax.swing.JLabel lblErrorIdCard;
     private javax.swing.JLabel lblErrorPhone;
     private javax.swing.JLabel lblErrorType;
+    private com.github.lgooddatepicker.components.DatePicker pkrDateOfBirth;
     private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtDateOfBirth;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFullName;
     private javax.swing.JTextField txtIdCard;
     private javax.swing.JTextField txtPhone;
-    private javax.swing.JTextField txtType;
     // End of variables declaration//GEN-END:variables
 }

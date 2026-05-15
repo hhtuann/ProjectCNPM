@@ -78,10 +78,10 @@
                           </Group>
                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtType" alignment="1" max="32767" attributes="0"/>
                               <Component id="lblErrorPhone" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtPhone" max="32767" attributes="0"/>
                               <Component id="lblErrorType" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cbxType" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -100,10 +100,10 @@
                               <Component id="lblErrorAddress" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtFullName" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtIdCard" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtDateOfBirth" max="32767" attributes="0"/>
                               <Component id="txtAddress" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtEmail" max="32767" attributes="0"/>
                               <Component id="lblErrorEmail" alignment="0" max="32767" attributes="0"/>
+                              <Component id="pkrDateOfBirth" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -131,7 +131,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtDateOfBirth" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="pkrDateOfBirth" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblErrorDateOfBirth" min="-2" max="-2" attributes="0"/>
@@ -159,7 +159,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtType" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbxType" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblErrorType" min="-2" max="-2" attributes="0"/>
@@ -187,8 +187,6 @@
             <Property name="text" type="java.lang.String" value="Ng&#xe0;y sinh:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtDateOfBirth">
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#x110;&#x1ecb;a ch&#x1ec9;:"/>
@@ -214,8 +212,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ph&#xe2;n lo&#x1ea1;i:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtType">
         </Component>
         <Component class="javax.swing.JLabel" name="lblErrorFullName">
           <Properties>
@@ -293,6 +289,22 @@
             </Property>
             <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
+        </Component>
+        <Component class="com.github.lgooddatepicker.components.DatePicker" name="pkrDateOfBirth">
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbxType">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="3">
+                <StringItem index="0" value="C&#xe1; nh&#xe2;n"/>
+                <StringItem index="1" value="Gia &#x111;&#xec;nh"/>
+                <StringItem index="2" value="Doanh nghi&#x1ec7;p"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
