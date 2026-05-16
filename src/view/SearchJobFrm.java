@@ -217,6 +217,8 @@ public class SearchJobFrm extends javax.swing.JFrame {
             return;
         }
 
+        tblJob.setRowSelectionInterval(row, row);
+
         if (isLeftMouseButton(evt) && evt.getClickCount() == 2) {
             Job job = this.jobs.get(row);
 

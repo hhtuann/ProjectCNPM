@@ -232,6 +232,8 @@ public class SearchCustomerFrm extends javax.swing.JFrame {
             return;
         }
 
+        tblCustomer.setRowSelectionInterval(row, row);
+
         if (isLeftMouseButton(evt) && evt.getClickCount() == 2) {
             Customer customer = this.customers.get(row);
 

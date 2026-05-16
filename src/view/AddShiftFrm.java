@@ -492,9 +492,7 @@ public class AddShiftFrm extends JFrame {
                 this.dispose();
             }
             return;
-        }
-
-        if (!this.contract.getContractJobs().contains(this.contractJob)) {
+        } else if (!this.contract.getContractJobs().contains(this.contractJob)) {
             this.contract.getContractJobs().add(this.contractJob);
         }
 
