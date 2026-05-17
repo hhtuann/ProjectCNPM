@@ -31,7 +31,7 @@ public class AddCustomerFrm extends javax.swing.JFrame {
         this.user = user;
         initComponents();
         this.setLocationRelativeTo(null);
-        settingLGoodDatePicker();
+        initLGoodDatePicker();
     }
 
     /**
@@ -316,7 +316,7 @@ public class AddCustomerFrm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void settingLGoodDatePicker() {
+    private void initLGoodDatePicker() {
         com.github.lgooddatepicker.components.DatePickerSettings dateSettings = pkrDateOfBirth.getSettings();
         dateSettings.setFormatForDatesCommonEra(dateFormatter);
     }

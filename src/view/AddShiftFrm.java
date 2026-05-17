@@ -51,11 +51,11 @@ public class AddShiftFrm extends JFrame {
         } else {
             this.contractJob = contractJob;
         }
-        this.contractJobShifts = this.contractJob.getContractJobShifts();
+        this.contractJobShifts = new ArrayList<>(this.contractJob.getContractJobShifts());
 
         initComponents();
         this.setLocationRelativeTo(null);
-        settingLGoodDatePicker();
+        initLGoodDatePicker();
 
         DefaultTableModel tableModel = (DefaultTableModel) tblContractJobShift.getModel();
         tableModel.setRowCount(0);
@@ -496,6 +496,7 @@ public class AddShiftFrm extends JFrame {
             this.contract.getContractJobs().add(this.contractJob);
         }
 
+        this.contractJob.setContractJobShifts(this.contractJobShifts);
         this.createContractFrm.reloadTblContractJob();
         this.dispose();
     }//GEN-LAST:event_btnSaveActionPerformed
@@ -554,7 +555,7 @@ public class AddShiftFrm extends JFrame {
         }
     }
 
-    private void settingLGoodDatePicker() {
+    private void initLGoodDatePicker() {
         com.github.lgooddatepicker.components.DatePickerSettings dateSettings = pkrWorkingDate.getSettings();
         LocalDate today = LocalDate.now();
         LocalDate nextMonday = today.with(java.time.temporal.TemporalAdjusters.next(java.time.DayOfWeek.MONDAY));
