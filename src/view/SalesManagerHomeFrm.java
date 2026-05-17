@@ -5,7 +5,6 @@
 package view;
 
 import model.User;
-import model.User;
 
 import java.time.format.DateTimeFormatter;
 

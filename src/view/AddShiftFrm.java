@@ -12,8 +12,6 @@ import model.Shift;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -343,7 +341,7 @@ public class AddShiftFrm extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSearchShiftActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnSearchShiftActionPerformed
+    private void btnSearchShiftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchShiftActionPerformed
         // TODO add your handling code here:
         lblErrorWorkingDate.setText(" ");
         lblErrorStartTime.setText(" ");
@@ -398,7 +396,7 @@ public class AddShiftFrm extends JFrame {
         }
     }//GEN-LAST:event_btnSearchShiftActionPerformed
 
-    private void btnAddShiftActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnAddShiftActionPerformed
+    private void btnAddShiftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddShiftActionPerformed
         // TODO add your handling code here:
         String requiredWorkerString = txtRequiredWorker.getText();
         String agreedWageString = txtAgreedWage.getText();
@@ -491,7 +489,7 @@ public class AddShiftFrm extends JFrame {
         }
     }//GEN-LAST:event_btnAddShiftActionPerformed
 
-    private void btnSaveActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         if (this.contractJobShifts.isEmpty()) {
             if (JOptionPane.showConfirmDialog(this, "Xác nhận không thêm ca làm cho đầu việc này?\nĐầu việc này sẽ bị xoá.", "Xác nhận", JOptionPane.YES_NO_OPTION) == 0) {
@@ -509,7 +507,7 @@ public class AddShiftFrm extends JFrame {
         this.dispose();
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void btnBackActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
@@ -530,9 +528,9 @@ public class AddShiftFrm extends JFrame {
             popupMenu.add(itemDelete);
             popupMenu.show(tblContractJobShift, evt.getX(), evt.getY());
 
-            itemDelete.addActionListener(new ActionListener() {
+            itemDelete.addActionListener(new java.awt.event.ActionListener() {
                 @Override
-                public void actionPerformed(ActionEvent e) {
+                public void actionPerformed(java.awt.event.ActionEvent e) {
                     if (JOptionPane.showConfirmDialog(AddShiftFrm.this, "Bạn có xác nhận xoá ca làm này?", "Xác nhận", JOptionPane.YES_NO_OPTION) == 0) {
                         deleteShiftAtRow(row);
                     }

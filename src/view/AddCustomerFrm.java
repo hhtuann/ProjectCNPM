@@ -10,9 +10,7 @@ import model.User;
 
 import javax.swing.*;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
 /**
  *
@@ -271,7 +269,7 @@ public class AddCustomerFrm extends javax.swing.JFrame {
         } else if (!idCard.matches("\\d{12}")) {
             lblErrorIdCard.setText("*Số CCCD phải là 12 chữ số");
             isValid = false;
-        } else if(customerDAO.isIdCardExisted(idCard)) {
+        } else if (customerDAO.isIdCardExisted(idCard)) {
             lblErrorIdCard.setText("*Số CCCD đã tồn tại");
             isValid = false;
         }

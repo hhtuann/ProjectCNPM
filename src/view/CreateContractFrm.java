@@ -10,8 +10,6 @@ import model.ContractJobShift;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
@@ -191,9 +189,9 @@ public class CreateContractFrm extends javax.swing.JFrame {
             popupMenu.add(itemDelete);
             popupMenu.show(tblContractJob, evt.getX(), evt.getY());
 
-            itemDelete.addActionListener(new ActionListener() {
+            itemDelete.addActionListener(new java.awt.event.ActionListener() {
                 @Override
-                public void actionPerformed(ActionEvent e) {
+                public void actionPerformed(java.awt.event.ActionEvent e) {
                     if (JOptionPane.showConfirmDialog(CreateContractFrm.this, "Bạn có xác nhận xoá ca làm này?", "Xác nhận", JOptionPane.YES_NO_OPTION) == 0) {
                         deleleShiftAtRow(row);
                     }
