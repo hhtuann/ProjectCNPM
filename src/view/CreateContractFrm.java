@@ -161,7 +161,6 @@ public class CreateContractFrm extends javax.swing.JFrame {
         }
 
         this.contract.setPaymentMethod(cbxPaymentMethod.getSelectedItem().toString());
-        this.contract.calculateTotalJobWage();
         this.contract.setContractDate(java.time.LocalDate.now());
 
         ConfirmContractFrm confirmContractFrm = new ConfirmContractFrm(this, this.contract);
