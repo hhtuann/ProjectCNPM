@@ -127,8 +127,8 @@
               <Table columnCount="4" rowCount="0">
                 <Column editable="false" title="STT" type="java.lang.Object"/>
                 <Column editable="false" title="T&#xea;n &#x111;&#x1ea7;u vi&#x1ec7;c" type="java.lang.Object"/>
-                <Column editable="false" title="M&#x1ee9;c l&#x1b0;&#x1a1;ng" type="java.lang.Object"/>
                 <Column editable="false" title="M&#xf4; t&#x1ea3;" type="java.lang.Object"/>
+                <Column editable="false" title="Y&#xea;u c&#x1ea7;u k&#x129; n&#x103;ng" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

@@ -244,7 +244,7 @@ public class CreateContractFrm extends javax.swing.JFrame {
                         cjs.getShift().getStartTime().format(timeFormatter),
                         cjs.getShift().getEndTime().format(timeFormatter),
                         cjs.getRequiredWorkers(),
-                        cjs.getAgreedWage()
+                        String.format("%,.0f VNĐ", cjs.getAgreedWage())
                 });
             }
         }

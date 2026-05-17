@@ -111,7 +111,7 @@ public class SearchJobFrm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "STT", "Tên đầu việc", "Mức lương", "Mô tả"
+                "STT", "Tên đầu việc", "Mô tả", "Yêu cầu kĩ năng"
             }
         ) {
             boolean[] canEdit = new boolean [] {
