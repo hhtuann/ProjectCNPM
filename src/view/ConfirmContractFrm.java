@@ -83,6 +83,18 @@ public class ConfirmContractFrm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblContractJob = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        lblPaymentMethod = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        lblTotalWage = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        lblContractDate = new javax.swing.JLabel();
+        btnSave = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lblCustomerFullName = new javax.swing.JLabel();
@@ -113,110 +125,9 @@ public class ConfirmContractFrm extends javax.swing.JFrame {
         lblUserPhone = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         lblUserRole = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tblContractJob = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        lblPaymentMethod = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        lblTotalWage = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        lblContractDate = new javax.swing.JLabel();
-        btnSave = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Xác nhận hợp đồng");
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Thông tin khách hàng"));
-        jPanel1.setLayout(new java.awt.GridLayout(7, 2));
-
-        jLabel1.setText("Họ và tên:  ");
-        jPanel1.add(jLabel1);
-
-        lblCustomerFullName.setText(" ");
-        jPanel1.add(lblCustomerFullName);
-
-        jLabel2.setText("CCCD:  ");
-        jPanel1.add(jLabel2);
-
-        lblCustomerIdCard.setText(" ");
-        jPanel1.add(lblCustomerIdCard);
-
-        jLabel3.setText("Ngày sinh:  ");
-        jPanel1.add(jLabel3);
-
-        lblCustomerDateOfBirth.setText(" ");
-        jPanel1.add(lblCustomerDateOfBirth);
-
-        jLabel4.setText("Địa chỉ:  ");
-        jPanel1.add(jLabel4);
-
-        lblCustomerAddress.setText(" ");
-        jPanel1.add(lblCustomerAddress);
-
-        jLabel5.setText("Email:  ");
-        jPanel1.add(jLabel5);
-
-        lblCustomerEmail.setText(" ");
-        jPanel1.add(lblCustomerEmail);
-
-        jLabel6.setText("SĐT:  ");
-        jPanel1.add(jLabel6);
-
-        lblCustomerPhone.setText(" ");
-        jPanel1.add(lblCustomerPhone);
-
-        jLabel7.setText("Phân loại:  ");
-        jPanel1.add(jLabel7);
-
-        lblCustomerType.setText(" ");
-        jPanel1.add(lblCustomerType);
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Thông tin nhân viên"));
-        jPanel2.setLayout(new java.awt.GridLayout(7, 2));
-
-        jLabel8.setText("Họ và tên:  ");
-        jPanel2.add(jLabel8);
-
-        lblUserFullName.setText(" ");
-        jPanel2.add(lblUserFullName);
-
-        jLabel9.setText("CCCD:  ");
-        jPanel2.add(jLabel9);
-
-        lblUserIdCard.setText(" ");
-        jPanel2.add(lblUserIdCard);
-
-        jLabel10.setText("Ngày sinh:  ");
-        jPanel2.add(jLabel10);
-
-        lblUserDateOfBirth.setText(" ");
-        jPanel2.add(lblUserDateOfBirth);
-
-        jLabel11.setText("Địa chỉ:  ");
-        jPanel2.add(jLabel11);
-
-        lblUserAddress.setText(" ");
-        jPanel2.add(lblUserAddress);
-
-        jLabel12.setText("Email:  ");
-        jPanel2.add(jLabel12);
-
-        lblUserEmail.setText(" ");
-        jPanel2.add(lblUserEmail);
-
-        jLabel13.setText("SĐT:  ");
-        jPanel2.add(jLabel13);
-
-        lblUserPhone.setText(" ");
-        jPanel2.add(lblUserPhone);
-
-        jLabel14.setText("Chức vụ:  ");
-        jPanel2.add(jLabel14);
-
-        lblUserRole.setText(" ");
-        jPanel2.add(lblUserRole);
 
         jScrollPane3.setBorder(javax.swing.BorderFactory.createTitledBorder("Danh sách đầu việc/ca làm"));
 
@@ -267,6 +178,102 @@ public class ConfirmContractFrm extends javax.swing.JFrame {
         btnBack.setText("Quay lại");
         btnBack.addActionListener(this::btnBackActionPerformed);
 
+        jPanel4.setLayout(new java.awt.GridLayout(1, 2));
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Thông tin khách hàng"));
+        jPanel1.setLayout(new java.awt.GridLayout(7, 2));
+
+        jLabel1.setText("Họ và tên:  ");
+        jPanel1.add(jLabel1);
+
+        lblCustomerFullName.setText(" ");
+        jPanel1.add(lblCustomerFullName);
+
+        jLabel2.setText("CCCD:  ");
+        jPanel1.add(jLabel2);
+
+        lblCustomerIdCard.setText(" ");
+        jPanel1.add(lblCustomerIdCard);
+
+        jLabel3.setText("Ngày sinh:  ");
+        jPanel1.add(jLabel3);
+
+        lblCustomerDateOfBirth.setText(" ");
+        jPanel1.add(lblCustomerDateOfBirth);
+
+        jLabel4.setText("Địa chỉ:  ");
+        jPanel1.add(jLabel4);
+
+        lblCustomerAddress.setText(" ");
+        jPanel1.add(lblCustomerAddress);
+
+        jLabel5.setText("Email:  ");
+        jPanel1.add(jLabel5);
+
+        lblCustomerEmail.setText(" ");
+        jPanel1.add(lblCustomerEmail);
+
+        jLabel6.setText("SĐT:  ");
+        jPanel1.add(jLabel6);
+
+        lblCustomerPhone.setText(" ");
+        jPanel1.add(lblCustomerPhone);
+
+        jLabel7.setText("Phân loại:  ");
+        jPanel1.add(jLabel7);
+
+        lblCustomerType.setText(" ");
+        jPanel1.add(lblCustomerType);
+
+        jPanel4.add(jPanel1);
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Thông tin nhân viên"));
+        jPanel2.setLayout(new java.awt.GridLayout(7, 2));
+
+        jLabel8.setText("Họ và tên:  ");
+        jPanel2.add(jLabel8);
+
+        lblUserFullName.setText(" ");
+        jPanel2.add(lblUserFullName);
+
+        jLabel9.setText("CCCD:  ");
+        jPanel2.add(jLabel9);
+
+        lblUserIdCard.setText(" ");
+        jPanel2.add(lblUserIdCard);
+
+        jLabel10.setText("Ngày sinh:  ");
+        jPanel2.add(jLabel10);
+
+        lblUserDateOfBirth.setText(" ");
+        jPanel2.add(lblUserDateOfBirth);
+
+        jLabel11.setText("Địa chỉ:  ");
+        jPanel2.add(jLabel11);
+
+        lblUserAddress.setText(" ");
+        jPanel2.add(lblUserAddress);
+
+        jLabel12.setText("Email:  ");
+        jPanel2.add(jLabel12);
+
+        lblUserEmail.setText(" ");
+        jPanel2.add(lblUserEmail);
+
+        jLabel13.setText("SĐT:  ");
+        jPanel2.add(jLabel13);
+
+        lblUserPhone.setText(" ");
+        jPanel2.add(lblUserPhone);
+
+        jLabel14.setText("Chức vụ:  ");
+        jPanel2.add(jLabel14);
+
+        lblUserRole.setText(" ");
+        jPanel2.add(lblUserRole);
+
+        jPanel4.add(jPanel2);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -275,25 +282,20 @@ public class ConfirmContractFrm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnSave)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBack))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -352,6 +354,7 @@ public class ConfirmContractFrm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblContractDate;
     private javax.swing.JLabel lblCustomerAddress;
