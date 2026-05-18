@@ -229,7 +229,7 @@ public class SearchJobFrm extends javax.swing.JFrame {
             if (index != -1) {
                 contractJob = this.contract.getContractJobs().get(index);
             }
-            AddShiftFrm addShiftFrm = new AddShiftFrm(this.createContractFrm, this.contract, contractJob);
+            AddShiftFrm addShiftFrm = new AddShiftFrm(this.createContractFrm, contractJob);
             addShiftFrm.setVisible(true);
             this.dispose();
         }

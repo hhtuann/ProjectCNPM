@@ -247,6 +247,10 @@ public class CreateContractFrm extends javax.swing.JFrame {
         }
     }
 
+    public Contract getContract() {
+        return contract;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddJob;
     private javax.swing.JButton btnBack;

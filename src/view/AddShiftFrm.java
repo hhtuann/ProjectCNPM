@@ -29,7 +29,6 @@ public class AddShiftFrm extends JFrame {
 
     private static final Logger logger = Logger.getLogger(AddShiftFrm.class.getName());
     private CreateContractFrm createContractFrm;
-    private Contract contract;
     private ContractJob contractJob;
     private ArrayList<Shift> shifts = new ArrayList<>();
     private ArrayList<ContractJobShift> contractJobShifts = new ArrayList<>();
@@ -39,9 +38,8 @@ public class AddShiftFrm extends JFrame {
     /**
      * Creates new form AddShiftFrm
      */
-    public AddShiftFrm(CreateContractFrm createContractFrm, Contract contract, ContractJob contractJob) {
+    public AddShiftFrm(CreateContractFrm createContractFrm, ContractJob contractJob) {
         this.createContractFrm = createContractFrm;
-        this.contract = contract;
         this.contractJob = contractJob;
         this.contractJobShifts = new ArrayList<>(this.contractJob.getContractJobShifts());
 
@@ -444,18 +442,18 @@ public class AddShiftFrm extends JFrame {
         ArrayList<ContractJobShift> existedShifts = new ArrayList<>();
         ArrayList<ContractJobShift> selectedShifts = new ArrayList<>();
 
-        for (int i = 0; i < tableModelShifts.getRowCount(); ++i) {
-            if ((boolean) tableModelShifts.getValueAt(i, 4)) {
+        for (int row = 0; row < tableModelShifts.getRowCount(); ++row) {
+            if ((boolean) tableModelShifts.getValueAt(row, 4)) {
                 ContractJobShift selectedShift = new ContractJobShift(
-                        i,
+                        row,
                         requiredWorkers,
                         agreedWage,
-                        this.shifts.get(i)
+                        this.shifts.get(row)
                 );
 
                 selectedShifts.add(selectedShift);
                 if (this.contractJobShifts.contains(selectedShift)) {
-                    tableModelShifts.setValueAt(false, i, 4);
+                    tableModelShifts.setValueAt(false, row, 4);
                     existedShifts.add(selectedShift);
                 }
             }
@@ -485,15 +483,16 @@ public class AddShiftFrm extends JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
+        ArrayList<ContractJob> contractJobArrayList = this.createContractFrm.getContract().getContractJobs();
         if (this.contractJobShifts.isEmpty()) {
             if (JOptionPane.showConfirmDialog(this, "Xác nhận không thêm ca làm cho đầu việc này?\nĐầu việc này sẽ bị xoá.", "Xác nhận", JOptionPane.YES_NO_OPTION) == 0) {
-                this.contract.getContractJobs().remove(this.contractJob);
+                contractJobArrayList.remove(this.contractJob);
                 this.createContractFrm.reloadTblContractJob();
                 this.dispose();
             }
             return;
-        } else if (!this.contract.getContractJobs().contains(this.contractJob)) {
-            this.contract.getContractJobs().add(this.contractJob);
+        } else if (!contractJobArrayList.contains(this.contractJob)) {
+            contractJobArrayList.add(this.contractJob);
         }
 
         this.contractJob.setContractJobShifts(this.contractJobShifts);
